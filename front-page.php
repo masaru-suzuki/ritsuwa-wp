@@ -34,11 +34,25 @@ get_header();
           src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
     </div>
     <div class="main-visual__news sp-none">
-      <a class="news-link" href=""></a><!-- newsへのリンクをbox全体に広げる-->
+      <!-- 最新の投稿記事の取得 -->
+      <?php
+      $args = array(
+        'posts_per_page' => 1 // 表示件数の指定
+      );
+      $posts = get_posts($args);
+      foreach ($posts as $post) : // ループの開始
+        setup_postdata($post); // 記事データの取得
+      ?>
+      <a class="news-link" href="<?php the_permalink(); ?>"></a><!-- newsへのリンクをbox全体に広げる-->
       <p class="main-visual__news--header main-visual-txt">NEWS</p>
       <dl class="main-visual__news--articlw">
-        <dt class="news-ymd main-visual-txt">2021-1-1</dt>
-        <dd class="news-ttl main-visual-txt">新年会を開催しました！</dd>
+        <dt class="news-ymd main-visual-txt"><?php echo get_the_date('Y-n-j'); ?></dt>
+        <dd class="news-ttl main-visual-txt"><?php the_title(); ?></dd>
+        <p><?php echo get_the_ID(); ?></p>
+        <?php
+      endforeach; // ループの終了
+      wp_reset_postdata(); // 直前のクエリを復元する
+        ?>
       </dl>
     </div>
   </div>

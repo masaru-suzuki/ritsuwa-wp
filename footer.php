@@ -32,6 +32,9 @@
       <a href="" class="btn-round darkblue">採用サイトへ</a>
     </div>
   </div>
+  <p class="copyright">
+    &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
+  </p>
 </footer><!-- #colophon -->
 </div><!-- #page -->
 

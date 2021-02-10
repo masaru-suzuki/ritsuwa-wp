@@ -452,13 +452,10 @@ text
   }
 }
 .copyright {
-  @include cmn_txt($ff: helvetica, $fz: 10, $ls: 1, $lh: 12, $mfz: 8, $mls: 1, $mlh: 10, $sfz: 8, $sls: 0.8, $slh: 10);
-  font-weight: 300;
-  font-size: 10px;
-  letter-spacing: 1px;
-  line-height: 12px;
-  color: $white;
+  @include cmn_txt($fz: 15, $ls: 1, $lh: 30, $mfz: 12, $mls: 1, $mlh: 24, $sfz: 8, $sls: 0.8, $slh: 16);
+  color: $black;
   text-align: center;
+  padding-bottom: 4px;
 }
 
 /*====================================================================================
