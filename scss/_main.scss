@@ -1,6 +1,6 @@
 main {
   @include wf;
-  background-image: url(/assets/images/bg.png);
+  // background-image: url(images/bg.png);
   overflow-x: hidden;
 
   /*==================================================
@@ -15,7 +15,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 10%;
-    background-image: url(/assets/images/top_mv.jpg);
+    background-image: url(images/top_mv.jpg);
     position: relative;
     @include mq-down {
       height: 650px;
@@ -74,7 +74,7 @@ main {
         content: "";
         width: 30px;
         height: 30px;
-        background-image: url(/assets/images/phone_blue.png);
+        background-image: url(images/phone_blue.png);
         background-size: contain;
         @include mq-down {
           width: 20px;
@@ -116,7 +116,7 @@ main {
         content: "";
         width: 30px;
         height: 30px;
-        background-image: url(/assets/images/round-corner.png);
+        background-image: url(images/round-corner.png);
         background-size: contain;
       }
       &::after {
@@ -126,7 +126,7 @@ main {
         content: "";
         width: 30px;
         height: 30px;
-        background-image: url(/assets/images/round-corner.png);
+        background-image: url(images/round-corner.png);
         background-size: contain;
       }
 
@@ -208,7 +208,7 @@ main {
       }
     }
     .main-visual {
-      background-image: url(/assets/images/service_mv.jpg);
+      background-image: url(images/service_mv.jpg);
       margin-bottom: 0;
       height: 500px;
       max-width: 1200px;
@@ -330,7 +330,7 @@ main {
               position: absolute;
               top: 30px;
               left: 0%;
-              background-image: url(/assets/images/top_lead_kakko.png);
+              background-image: url(images/top_lead_kakko.png);
               background-size: contain;
               background-repeat: no-repeat;
               max-width: 700px;
@@ -358,7 +358,7 @@ main {
         content: "";
         width: 120%;
         height: 120%;
-        background-image: url(/assets/images/top_bg_01.png);
+        background-image: url(images/top_bg_01.png);
         background-size: contain;
         background-repeat: no-repeat;
         @include mq-down(sm) {
@@ -429,7 +429,7 @@ main {
         padding: 0 32px 16px;
       }
       &::before {
-        background-image: url(/assets/images/top_bg_02.png);
+        background-image: url(images/top_bg_02.png);
         @include mq-down(sm) {
           top: 360px;
           left: 0;
@@ -543,7 +543,7 @@ main {
   .cta-section {
     @include wf;
     height: auto;
-    background-image: url(/assets/images/contact_bg.jpg);
+    background-image: url(images/contact_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
@@ -588,7 +588,7 @@ main {
         content: "";
         width: 88px;
         height: 16px;
-        background-image: url(/assets/images/arrow.png);
+        background-image: url(images/arrow.png);
         background-repeat: no-repeat;
         transition: 0.5s;
         background-size: contain;

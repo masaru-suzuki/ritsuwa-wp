@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -11,24 +12,31 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ritsuwa' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'ritsuwa' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ritsuwa' ), 'ritsuwa', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+<footer id="colophon" class="site-footer">
+  <div class="footer-wrapper">
+    <div class="footer-wrapper__left-box">
+      <img src="<?php echo bloginfo('template_url'); ?>/images/logo.png" alt="">
+      <p class="footer-txt">株式会社<span class="space"></span>リツワ</p>
+      <p class="footer-txt">〒989-5301<span class="space"></span><br class="pc-none">栗原市栗町岩ヶ崎相木沢66番地</p>
+      <div class="sns-link"><i class="fab fa-facebook fa-2x"></i><i class="fab fa-instagram fa-2x"></i></div>
+    </div>
+    <div class="footer-wrapper__center-box">
+      <ul>
+        <li><a class="footer-txt" href="">サービス一覧</a></li>
+        <li><a class="footer-txt" href="">お知らせ</a></li>
+        <li><a class="footer-txt" href="">施設一覧</a></li>
+      </ul>
+    </div>
+    <div class="footer-wrapper__right-box">
+      <a href="" class="btn-round grayblue">お問い合わせ</a>
+      <a href="" class="btn-round darkblue">採用サイトへ</a>
+    </div>
+  </div>
+</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>
