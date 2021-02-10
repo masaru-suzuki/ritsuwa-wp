@@ -1,0 +1,262 @@
+.event-page {
+  /*==================================================
+ main-visual
+==================================================*/
+  .page-top {
+    .main-visual {
+      background-image: url(/assets/images/news-mv.jpg);
+    }
+  }
+}
+
+/*==================================================
+ event-section
+==================================================*/
+.event-section {
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: $white;
+  display: flex;
+  justify-content: space-between;
+  padding: 156px 56px 98px;
+  @include mq-down {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 128px 32px 64px;
+  }
+  @include mq-down(sm) {
+    padding: 80px 24px 40px;
+  }
+  &__contents {
+    @include wf;
+    text-align: center;
+    @include mq-down {
+      @include mb3;
+    }
+  }
+  // &__side {
+  //   max-width: 250px;
+  //   width: 100%;
+  // }
+}
+
+.news-list {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &::after {
+    //カードが左端に寄せる
+    content: "";
+    max-width: 320px;
+    width: 100%;
+    margin: 0 16px; //news-cardのmarginと合わせる
+    @include mq-down {
+      margin: 0 auto;
+    }
+  }
+}
+
+/*==================================================
+news-card
+==================================================*/
+.news-card {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 16px 96px;
+  background-color: $white;
+  box-shadow: 0px 3px 6px $gray;
+  // border: 1px solid $white;
+  border-radius: 4px;
+  position: relative;
+  transition: 0.3s;
+  @include mq-down {
+    margin: 0 auto 64px;
+  }
+
+  //hoverクラスの付与
+  &.hover {
+    // background-color: rgba($color: $gray, $alpha: 0.1);
+    box-shadow: 0px 3px 20px rgba($color: $black, $alpha: 0.4);
+    transition: 0.3s;
+  }
+  &__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .tag {
+    position: absolute;
+    top: -12px;
+    left: -9px;
+    box-shadow: 0px 3px 10px $black;
+    z-index: 1; // マウスホバー時、画像が拡大した際にタグよりも画像が上にきてしまうため、z-indexを指定。
+  }
+  &__img-box {
+    height: 184px;
+    width: 100%;
+    border-radius: 4px 4px 0 0; //news-cardのborder-radiusと合わせる
+
+    //カードのマウスホバー時に画像を縮小拡大する
+    overflow: hidden;
+    img {
+      transition: 0.3s;
+    }
+    &.hover {
+      //hoverクラスの付与
+      img {
+        transform: scale(1.2, 1.2);
+        transition: 0.3s;
+      }
+    }
+  }
+  &__txt-box {
+    height: 240px;
+    padding: 32px 24px 4px;
+    position: relative;
+    overflow-x: hidden;
+    .news-card-ttl {
+      margin-bottom: 40px;
+    }
+    .news-card-info {
+      position: absolute;
+      bottom: 4px;
+      left: 24px;
+    }
+  }
+}
+
+/*==================================================
+side-bar
+==================================================*/
+.news-side-link {
+  // max-width: 320px;
+  // width: 100%;
+  width: 250px;
+  @include mb2;
+  margin: 0 auto 32px;
+  @include mq-down {
+    width: 100%;
+  }
+
+  &__ttl {
+    padding: 0 16px;
+    background-color: $whiteblue;
+  }
+  &__list {
+    .news-side-link__item {
+      padding: 0 16px; //linkの当たり判定の調整
+      border-bottom: 1px solid $gray;
+      cursor: pointer;
+      transition: 0.3s;
+      &.active {
+        color: $whiteblue;
+      }
+      &:hover {
+        background-color: $whitegray;
+        color: $whiteblue;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+.sns-link {
+  padding: 0 16px;
+  .fab {
+    margin-right: 16px;
+    color: $whiteblue;
+  }
+}
+/*==================================================
+page-nation
+==================================================*/
+.page-nation {
+  max-width: 1100px; //news-listと揃える
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+
+  .return-area,
+  .move-area {
+    max-width: 240px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include mq-down(sm) {
+      max-width: 112px;
+    }
+    .page-nation-link {
+      position: relative;
+      &:hover {
+        color: rgba($color: $black, $alpha: 1);
+        transition: 0.3s;
+      }
+      &::before {
+        position: absolute;
+        top: 0px;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 20px;
+        @include mq-down(sm) {
+          font-size: 10px;
+        }
+      }
+      &.return-first {
+        &::before {
+          content: "\f100";
+        }
+      }
+      &.prev {
+        &::before {
+          content: "\f104";
+        }
+      }
+    }
+  }
+
+  .return-area {
+    .page-nation-link {
+      padding-left: 48px;
+      @include mq-down(sm) {
+        padding-left: 24px;
+      }
+      &::before {
+        left: 20px;
+        @include mq-down(sm) {
+          left: 12px;
+        }
+      }
+    }
+  }
+
+  .move-area {
+    .page-nation-link {
+      padding-right: 48px;
+      @include mq-down(sm) {
+        padding-right: 24px;
+      }
+      &::before {
+        right: 20px;
+        @include mq-down(sm) {
+          right: 12px;
+        }
+      }
+      &.move-next {
+        &::before {
+          content: "\f105";
+        }
+      }
+      &.move-last {
+        &::before {
+          content: "\f101";
+        }
+      }
+    }
+  }
+}

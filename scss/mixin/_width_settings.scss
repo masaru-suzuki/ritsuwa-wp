@@ -1,0 +1,49 @@
+// @import "_responsive.scss";
+
+//pcのfullsizeを1920pxと想定
+@mixin wf {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@mixin w1 {
+  width: 100%;
+  max-width: 1660px; //左右に126px
+  margin: 0 auto;
+}
+@mixin w2 {
+  width: 100%;
+  max-width: 1472px; //左右に256px
+  margin: 0 auto;
+}
+@mixin w3 {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+@mixin w4 {
+  max-width: 768px;
+  width: 100%;
+  margin: 0 auto;
+}
+@mixin w5 {
+  width: 100%;
+  max-width: 512px;
+  margin: 0 auto;
+}
+
+@mixin mb1 {
+  margin-bottom: 16px;
+}
+@mixin mb2 {
+  margin-bottom: 32px;
+}
+@mixin mb3 {
+  margin-bottom: 64px;
+}
+@mixin mb4 {
+  margin-bottom: 128px;
+}
+@mixin mb5 {
+  margin-bottom: 256px;
+}

@@ -1,0 +1,151 @@
+.voice-section {
+  @include wf;
+  background-color: rgba($color: $whiteblue, $alpha: 0.2);
+  padding: 0 64px 64px;
+  .voice-box {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    @include mq-down {
+      flex-direction: column;
+    }
+
+    &__img-box {
+      max-width: 360px;
+      height: 400px;
+      width: 100%;
+      @include mq-down {
+        max-width: 600px;
+        margin: 0 auto 32px;
+      }
+      img {
+        border-radius: 10px;
+        @include mq-down {
+          border-radius: unset;
+        }
+      }
+    }
+    &__txt-box {
+      max-width: 726px;
+      width: 100%;
+      text-align: left;
+      margin-left: 56px;
+      position: relative;
+      @include mq-down {
+        margin: 0 auto;
+        padding: 0 56px;
+      }
+      @include mq-down(sm) {
+        padding: 0 32px;
+      }
+      p {
+        margin-bottom: 16px;
+      }
+      &::before {
+        position: absolute;
+        top: -30px;
+        right: -20px;
+        content: "";
+        width: 360px;
+        height: 200px;
+        background-image: url(/assets/images/voice-kakko.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include mq-down {
+          display: none;
+        }
+      }
+      &::after {
+        position: absolute;
+        bottom: 0px;
+        left: -20px;
+        content: "";
+        width: 360px;
+        height: 200px;
+        transform: rotate(180deg);
+        background-image: url(/assets/images/voice-kakko.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include mq-down {
+          display: none;
+        }
+      }
+    }
+    &:last-child {
+      margin-top: 128px;
+      flex-flow: row-reverse;
+      @include mq-down {
+        flex-direction: column;
+        margin-top: 64px;
+      }
+      .voice-box__txt-box {
+        margin: 0 56px 0 0;
+        @include mq-down {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+.marker-yellow {
+  background: linear-gradient(transparent 30%, #ffff00 0%);
+}
+
+/*==================================================
+servive-contents-section
+==================================================*/
+.servive-contents-section {
+  @include wf;
+  @include mb4;
+  padding-top: 126px;
+}
+.card-box {
+  @include w2;
+  @include mb3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: unset;
+  &::after {
+    //カードが左端によるように
+    content: "";
+    width: 400px;
+  }
+  &__card {
+    width: 400px;
+    margin: 0 8px 56px;
+    @include mq-down {
+      width: 320px;
+      margin-bottom: 16px;
+    }
+    @include mq-down(sm) {
+      margin: 0 8px;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 264px;
+      margin-bottom: 16px;
+      @include mq-down {
+        height: 196px;
+      }
+    }
+    .service-card-ttl {
+      height: 80px;
+      @include mq-down {
+        height: 60px;
+      }
+      @include mq-down(sm) {
+        height: unset;
+      }
+    }
+    .service-card-txt {
+      padding: 20px 48px;
+      @include mq-down {
+        padding: 20px 24px;
+      }
+    }
+  }
+}

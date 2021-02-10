@@ -1,0 +1,158 @@
+.facility-page {
+  /*==================================================
+main-visual
+==================================================*/
+  .page-top {
+    .main-visual {
+      background-image: url(/assets/images/top_facility01.jpg);
+    }
+  }
+  /*==================================================
+facilities-section
+==================================================*/
+  .facilities-section {
+    @include wf;
+    &__area-link {
+      @include wf;
+      background-color: rgba($color: $whiteblue, $alpha: 0.2);
+      text-align: center;
+    }
+    &__area {
+      @include wf;
+    }
+  }
+}
+.link-box {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  .btn-arrow-down {
+    margin-bottom: 16px;
+  }
+}
+.facilities-area {
+  @include wf;
+  /*facilities-area__itemsを格納して非表示に*/
+  overflow: hidden;
+  &__ttl {
+    @include wf;
+    height: 96px;
+    background-color: $blue;
+    padding: 0 32px;
+    @include mq-down(sm) {
+      padding: 0 16px;
+    }
+    &--inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+      //plus-iconの兼ね合いで、flexに
+      display: flex;
+      justify-content: space-between;
+    }
+    @include mq-down {
+      height: 64px;
+    }
+    @include mq-down(sm) {
+      height: 48px;
+    }
+  }
+  &__item {
+    @include w2;
+    /*格納して非表示に*/
+    // transform: translateY(-500px);
+    opacity: 0;
+    display: none;
+    // height: 0px;
+    transition: 0.5s;
+    &.active {
+      display: block;
+      // transform: translateY(0);
+      // height: 100%;
+      opacity: 1;
+      transition: 0.5s;
+    }
+
+    @include mq-down(sm) {
+      padding: 0;
+    }
+  }
+}
+
+.card01 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 0 40px;
+  border-bottom: 1px dashed $gray;
+  @include mq-down(sm) {
+    padding: 56px 16px 40px;
+  }
+  &__ttl {
+    margin-bottom: 24px;
+  }
+}
+
+.card01-contents {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  @include mq-down {
+    flex-direction: column;
+  }
+  &__img-box {
+    max-width: 400px;
+    width: 100%;
+    margin-right: 32px;
+    height: 300px;
+    @include mq-down {
+      max-width: unset;
+      margin-bottom: 32px;
+    }
+    @include mq-down(sm) {
+      height: 200px;
+    }
+  }
+  &__txt-box {
+    max-width: 720px;
+    width: 100%;
+    padding-bottom: 40px;
+    position: relative;
+    @include mq-down {
+      padding-bottom: 56px;
+    }
+    p {
+      padding-bottom: 8px;
+    }
+  }
+}
+.facility-service-box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  .facility-service {
+    padding-left: 16px;
+    margin-right: 20px;
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 3px;
+      left: 0px;
+      content: "\f0c8";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      color: $gray;
+      font-size: 10px;
+      transform: rotate(45deg);
+    }
+  }
+}
+.btn-box {
+  position: absolute;
+  bottom: 0;
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

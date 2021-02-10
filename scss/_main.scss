@@ -1,0 +1,623 @@
+main {
+  @include wf;
+  background-image: url(/assets/images/bg.png);
+  overflow-x: hidden;
+
+  /*==================================================
+  main visual
+  ==================================================*/
+
+  .main-visual {
+    @include wf;
+    @include mb5;
+    margin-top: 24px;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 10%;
+    background-image: url(/assets/images/top_mv.jpg);
+    position: relative;
+    @include mq-down {
+      height: 650px;
+    }
+    @include mq-down(sm) {
+      @include mb3;
+      height: 500px;
+    }
+    &__lead {
+      position: absolute;
+      bottom: 16px;
+      left: 13.3%;
+      max-width: 520px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      @include mq-down {
+        max-width: 350px;
+        bottom: 128px;
+      }
+      @include mq-down(sm) {
+        max-width: 330px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 32px;
+      }
+    }
+    &__call {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 310px;
+      background-color: $white;
+      padding: 32px 64px 24px;
+      @include mq-down {
+        width: 250px;
+        top: 100px;
+        height: 80px;
+        padding: 20px 48px 20px;
+      }
+      //電話のリンクを全体に広げるため
+      .call-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+      .main-visual-call-number {
+        padding-bottom: 16px;
+      }
+      &::before {
+        position: absolute;
+        top: 28px;
+        left: 24px;
+        content: "";
+        width: 30px;
+        height: 30px;
+        background-image: url(/assets/images/phone_blue.png);
+        background-size: contain;
+        @include mq-down {
+          width: 20px;
+          height: 20px;
+          top: 19px;
+        }
+      }
+    }
+    &__links {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      width: 60px;
+      @include mq-down {
+        width: 40px;
+      }
+      .mv-facebook {
+        margin-bottom: 24px;
+      }
+    }
+    &__news {
+      position: absolute;
+      bottom: 0px;
+      right: 0;
+      width: 400px;
+      height: 80px;
+      background-color: #fafdfe;
+      border-top-left-radius: 32px;
+      padding: 24px 0px 24px 24px;
+      @include mq-down {
+        width: 300px;
+      }
+      //右上と左下の外側に向かった角丸を表現
+      &::before {
+        position: absolute;
+        bottom: -5px;
+        left: -30px;
+        content: "";
+        width: 30px;
+        height: 30px;
+        background-image: url(/assets/images/round-corner.png);
+        background-size: contain;
+      }
+      &::after {
+        position: absolute;
+        top: -25px;
+        right: 0px;
+        content: "";
+        width: 30px;
+        height: 30px;
+        background-image: url(/assets/images/round-corner.png);
+        background-size: contain;
+      }
+
+      //電話のリンクを全体に広げるため
+      .news-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+      &--header {
+        padding-bottom: 16px;
+      }
+      &--articlw {
+        display: flex;
+        .news-ymd {
+          padding-right: 16px;
+        }
+      }
+    }
+  }
+  /*==================================================
+ page-top
+  ==================================================*/
+  .page-top {
+    @include wf;
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    @include mq-down {
+      height: 600px;
+    }
+    @include mq-down(sm) {
+      @include mb3;
+      height: 500px;
+    }
+    .ttl-box {
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .page-ttl {
+        display: block;
+        padding: 54px 88px 32px;
+        border: 1px solid $whiteblue;
+      }
+
+      /*スタイルが大きく変更になるため、子要素もこちらで管理*/
+      @include mq-down {
+        position: absolute;
+        bottom: -25px;
+        z-index: 1;
+        height: 128px;
+        max-width: unset;
+        display: block;
+        background-color: rgba($color: $whiteblue, $alpha: 0.7);
+        border-width: 0;
+        /* 吹き出しを下に表示 */
+        &::after {
+          top: 100%;
+          left: 50%;
+          border: solid transparent;
+          content: "";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+          border-top-color: rgba($color: $whiteblue, $alpha: 0.7);
+          border-width: 20px;
+          margin-left: -20px;
+        }
+        .page-ttl {
+          border: unset;
+          padding: 24px 0 0;
+        }
+      }
+    }
+    .main-visual {
+      background-image: url(/assets/images/service_mv.jpg);
+      margin-bottom: 0;
+      height: 500px;
+      max-width: 1200px;
+      width: 100%;
+      @include mq-down {
+        height: 600px;
+      }
+      @include mq-down(sm) {
+        height: 500px;
+      }
+      &__call {
+        top: 200px;
+      }
+      &__links {
+        top: 400px;
+        @include mq-down {
+          top: 350px;
+        }
+      }
+    }
+  }
+  /*==================================================
+ lead-section
+  ==================================================*/
+  .lead-section {
+    @include wf;
+    margin: -100px auto 0;
+    background-color: rgba($color: $whiteblue, $alpha: 0.2);
+    padding: 240px 56px 96px;
+    text-align: center;
+    // @include mq-down {
+    //   padding: 240px 0 128px;
+    // }
+    @include mq-down(sm) {
+      padding: 160px 0 64px;
+    }
+    &__lead {
+      max-width: 600px;
+      margin: 0 auto;
+      @include mq-down(sm) {
+        padding: 0 32px;
+      }
+    }
+  }
+
+  /*==================================================
+ service section
+  ==================================================*/
+  .service-section,
+  .facility-section {
+    @include w2;
+    @include mb5;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    @include mq-down {
+      max-width: 624px;
+    }
+    @include mq-down(sm) {
+      flex-direction: column-reverse;
+      max-width: unset;
+      @include mb4;
+    }
+    &__img-box {
+      max-width: 700px;
+      width: 100%;
+      img {
+        border-radius: 10px;
+      }
+    }
+    &__txt-box {
+      position: relative;
+      max-width: 630px;
+      width: 100%;
+      margin: 0 16px;
+      @include mq-down(sm) {
+        margin: 0 auto;
+      }
+
+      .sct-ttl {
+        position: relative;
+        padding-bottom: 64px;
+
+        .sub-ttl1 {
+          @include mq-down {
+            position: absolute;
+            font-size: 24px;
+            top: 37px;
+            left: 30%;
+          }
+          @include mq-down(sm) {
+            font-size: 20px;
+            left: 18%;
+          }
+        }
+        .sub-ttl {
+          position: absolute;
+          top: 60px;
+          left: 0;
+          @include mq-down {
+            top: 130px;
+            left: 40%;
+          }
+          @include mq-down(sm) {
+            top: 110px;
+          }
+        }
+        &.kakko {
+          @include mq-down {
+            padding-bottom: 160px;
+            padding-left: 10%;
+          }
+          @include mq-down(sm) {
+            padding-left: 0;
+          }
+          &::before {
+            @include mq-down {
+              content: "";
+              position: absolute;
+              top: 30px;
+              left: 0%;
+              background-image: url(/assets/images/top_lead_kakko.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              max-width: 700px;
+              width: 100%;
+              height: 90px;
+            }
+
+            @include mq-down(sm) {
+              top: 50px;
+              left: 4%;
+            }
+          }
+        }
+      }
+      p {
+        padding-bottom: 16px;
+      }
+      .btn-round {
+        margin-left: auto;
+      }
+      &::before {
+        position: absolute;
+        top: -110px;
+        left: -30px;
+        content: "";
+        width: 120%;
+        height: 120%;
+        background-image: url(/assets/images/top_bg_01.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include mq-down(sm) {
+          top: 120px;
+          left: -20px;
+        }
+      }
+    }
+  }
+  .menu-wrapper {
+    max-width: 760px;
+    width: 100%;
+    display: flex;
+    margin: 64px auto 0;
+    @include mq-down {
+      max-width: 600px;
+    }
+    &__caution {
+      padding: 25px 40px 0 0;
+      position: relative;
+      &::before {
+        content: "※";
+        position: absolute;
+        top: 0;
+      }
+    }
+    &__items {
+      flex-direction: column;
+      max-width: 660px;
+      width: 100%;
+      @include mq-down {
+        max-width: 442px;
+      }
+      &--1,
+      &--2 {
+        display: flex;
+        justify-content: space-between;
+        border-top: 0.3px solid $white;
+        padding: 16px 30px;
+        @include mb2;
+        @include mq-down {
+          padding: 16px 13px;
+        }
+      }
+      .menu-box {
+        padding: 5px;
+        &__item {
+          height: 150px;
+        }
+        &__price {
+          height: 120px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  /*==================================================
+ facility section
+==================================================*/
+  .facility-section {
+    @include mq-down {
+      padding: 0;
+    }
+    &__txt-box {
+      .sct-ttl,
+      p {
+        padding: 0 32px 16px;
+      }
+      &::before {
+        background-image: url(/assets/images/top_bg_02.png);
+        @include mq-down(sm) {
+          top: 360px;
+          left: 0;
+        }
+      }
+    }
+    .img-box01 {
+      display: block;
+      margin-left: auto;
+      max-width: 600px;
+      max-height: 394px;
+      margin-bottom: 56px;
+      @include mq-down(sm) {
+        margin-bottom: 24px;
+        height: 288px;
+      }
+    }
+    .img-box02 {
+      display: block;
+      margin-left: auto;
+      max-width: 312px;
+      max-height: 195px;
+    }
+  }
+
+  /*==================================================
+ news  section
+==================================================*/
+  .news-section {
+    @include wf;
+    background-color: $gray;
+    padding: 128px 32px;
+    @include mq-down {
+      padding: 64px 16px;
+    }
+    &__inner {
+      @include w2;
+
+      @include mq-down {
+        padding: 0;
+      }
+
+      .contents-wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        .txt-box {
+          max-width: 600px;
+          margin: 0 auto;
+          .ttl-box {
+            width: 100%;
+            margin-bottom: 32px;
+            display: flex;
+            img {
+              width: 70px;
+            }
+            .sct-ttl {
+              padding-left: 24px;
+              line-height: unset;
+            }
+          }
+          @include mq-down {
+          }
+        }
+        .news-box {
+          max-width: 600px;
+          width: 100%;
+          margin: 80px auto 0;
+          //見出しっぽくしたかったため、fontは筑紫A丸ゴシック
+          // .sub-ttl {
+          //   font-family: Hiragino Maru Gothic ProN;
+          //   padding-bottom: 12px;
+          //   font-weight: normal;
+          // }
+          @include mq-down(sm) {
+            margin-top: 32px;
+          }
+          .news-table {
+            margin-bottom: 36px;
+            @include mq-down {
+              width: 100%;
+            }
+            td {
+              border-width: 1px 0px; /* 上下だけ引く */
+              border-color: $black; /* 線色：緑 */
+              border-style: dashed; /* 線種：実線 */
+              padding: 0.3em; /* セル内側の余白 */
+              &:first-child,
+              &:nth-child(2) {
+                white-space: nowrap;
+              }
+              &:last-child {
+                @include mq-down(sm) {
+                  display: none;
+                }
+              }
+            }
+          }
+          .btn-round {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+
+  /*==================================================
+ cta section
+==================================================*/
+  .cta-section {
+    @include wf;
+    height: auto;
+    background-image: url(/assets/images/contact_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    z-index: 0; //背景ぼかしがコンテンツに影響しないようにするため
+    padding: 64px 0;
+    @include mq-down {
+      height: auto;
+      padding: 32px 0;
+    }
+    &__box {
+      max-width: 684px;
+      width: 100%;
+      height: 340px;
+      background-color: rgba($color: $white, $alpha: 0.7);
+      text-align: center;
+      padding: 30px 96px;
+      margin: 32px;
+      position: relative;
+      transition: 0.5s;
+      @include mq-down {
+        padding: 16px 32px 48px;
+        max-width: 540px;
+        height: auto;
+      }
+      a {
+        //box全体にlinkを貼った
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+      &::after {
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
+        content: "";
+        width: 88px;
+        height: 16px;
+        background-image: url(/assets/images/arrow.png);
+        background-repeat: no-repeat;
+        transition: 0.5s;
+        background-size: contain;
+        @include mq-down(sm) {
+          width: 72px;
+        }
+      }
+      &:hover,
+      &:active {
+        background-color: rgba($color: #ffffff, $alpha: 1);
+        transition: 0.5s;
+        &::after {
+          transition: 0.5s;
+          right: 12px;
+        }
+      }
+    }
+    //背景ぼかし
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      background: inherit;
+      filter: blur(3px);
+      /* position:absoluteのせいで最前面に来てしまうため */
+      z-index: -1;
+    }
+  }
+}

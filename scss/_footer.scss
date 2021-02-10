@@ -1,0 +1,129 @@
+// @import "mixin/_font.scss";
+// @import "mixin/_responsive.scss";
+
+footer {
+  @include wf;
+  background-color: $gray;
+  overflow-x: hidden;
+
+  .footer-wrapper {
+    @include w1;
+    padding: 64px 32px;
+    display: flex;
+    justify-content: space-between;
+    @include mq-down {
+      justify-content: space-around;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    @include mq-down(sm) {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    &__left-box {
+      max-width: 480px;
+      width: 100%;
+      // flex-direction: column;
+      // padding: 32px 12% 24px;
+      margin-right: 32px;
+
+      @include mq-down {
+        order: 3;
+        max-width: 100%;
+        border-top: 1px solid rgba($color: $black, $alpha: 0.4);
+        padding: 32px 12% 24px;
+        margin-top: 24px;
+      }
+      @include mq-down(sm) {
+        // padding: 32px;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      img {
+        max-width: 328px;
+        height: auto;
+        margin-bottom: 56px;
+        @include mq-down {
+          max-width: 184px;
+          margin-bottom: 24px;
+          display: block;
+        }
+      }
+      .footer-txt {
+        padding-bottom: 24px;
+        @include mq-down {
+          padding-bottom: 16px;
+        }
+      }
+      .sns-link {
+        padding: 0;
+      }
+    }
+
+    &__center-box {
+      max-width: 216px;
+      width: 100%;
+      white-space: nowrap;
+      margin: 0 16px;
+      position: relative;
+      @include mq-down {
+        max-width: 160px;
+      }
+      @include mq-down(sm) {
+        // margin: 32px 32px 16px;
+        margin: 32px auto;
+      }
+      li {
+        padding-bottom: 24px;
+        position: relative;
+        @include mq-down {
+          padding-bottom: 12px;
+        }
+        &::before {
+          position: absolute;
+          font-size: 15px;
+          right: 30px;
+          transition: 0.3s;
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          color: $black;
+          content: "\f054";
+          @include mq-down {
+            top: 12px;
+          }
+          @include mq-down(sm) {
+            top: 8px;
+          }
+        }
+        &:hover {
+          color: rgba($color: $black, $alpha: 0.5);
+          transition: 0.3s;
+          &::before {
+            color: rgba($color: $black, $alpha: 0.5);
+            right: 20px;
+          }
+        }
+      }
+    }
+
+    &__right-box {
+      max-width: 324px;
+      width: 100%;
+      @include mq-down {
+        max-width: 200px;
+        margin-top: 16px;
+      }
+      @include mq-down(sm) {
+        // margin-left: 30px;
+        margin: 0 auto;
+      }
+      .btn-round {
+        margin-bottom: 24px;
+        @include mq-down {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}

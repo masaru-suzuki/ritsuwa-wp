@@ -1,0 +1,30 @@
+.lower_main_visual {
+  @include wf;
+  @include mb3;
+  height: 40vh; /* 全画面表示 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(/cmn/img/pc/mv.png);
+  .inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 1096px;
+    align-items: center;
+    margin: auto;
+    padding: 0 3%;
+    .lower_page_ttl {
+      margin: 0 auto;
+    }
+  }
+}
+
+.message_wrap {
+  @include w3;
+  height: 36vh;
+  padding: 3%;
+  p {
+    @include mb2;
+  }
+}

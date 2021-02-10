@@ -1,0 +1,74 @@
+/*==================================================
+article page
+==================================================*/
+.article-page {
+  @include mq-down {
+    // padding-top: 80px; //レスポンシブheaderの高さ分下に下げる
+  }
+  @include mq-down(sm) {
+    // padding-top: 64px;
+  }
+  .breadcrumb {
+    @include w2;
+    // @include mb2;
+    padding: 56px 32px 56px; //article-sectionのpadding-sideと合わせる
+    @include mq-down {
+      padding: 128px 32px 0;
+    }
+    @include mq-down(sm) {
+      padding: 96px 16px 0; //article-sectionのpadding-sideと合わせる
+    }
+  }
+}
+/*==================================================
+article-section
+==================================================*/
+.article-section {
+  @include w2;
+  display: flex;
+  justify-content: space-between;
+  margin: 56px auto 128px;
+  padding: 0 32px;
+  @include mq-down {
+    flex-direction: column;
+    margin-bottom: 96px;
+    padding: 0 32px;
+    justify-content: space-around;
+  }
+  @include mq-down(sm) {
+    margin-bottom: 32px;
+    padding: 0px 16px;
+  }
+
+  &__contents {
+    @include w3;
+    width: 100%;
+    margin: 40px 32px 56px 0;
+    @include mq-down {
+      @include mb3;
+    }
+  }
+}
+.article {
+  width: 100%;
+  &__ttl {
+    border-bottom: 1px solid $gray;
+    padding-bottom: 16px;
+    position: relative;
+  }
+  .tag {
+    top: -40px;
+    left: 0px;
+  }
+
+  &__contents {
+    padding: 24px 0 56px;
+    img {
+      margin: 24px 0;
+    }
+  }
+}
+
+/*==================================================
+servive-contents-section
+==================================================*/

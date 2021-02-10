@@ -1,0 +1,55 @@
+/*!
+Theme Name: ritsuwa
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: ritsuwa
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+ritsuwa is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+@import "common";
+@import "main";
+@import "header";
+@import "footer";
+@import "page-service";
+@import "page-facility";
+@import "page-event";
+@import "page-article";
+// @import "kodawari";
+// @import "mixin/font.scss";
+// @import "menu";
+@import "components/humburger";
+@import "components/breadcrumb";
+@import "components/tag";
+@import "components/pagenation01";
+@import "components/pagenation02";
+// @import "components/btn/_footer.scss";
+// @import "components/btn/_contact.scss";
+@import "components/btn/btn_round";
+@import "components/btn/arrow-down";
+@import "components/btn/square";
+@import "components/icon/plus";
+// @import "components/icon/tag";
+// @import "components/btn/_color_change";
+// @import "components/_contactform.scss";
+// @import "components/_thanks_page.scss";
+// @import "components/_action_side_btn.scss";
+// @import "components/_action_bottom_btn.scss";
+// @import "components/_shutter.scss";
+@import "components/reset";
+// @import "components/btn/_baloon.scss";
