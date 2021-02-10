@@ -36,10 +36,10 @@
       <img class="site-header__logo" src="<?php echo bloginfo('template_url'); ?>/images/logo.png" alt="">
       <div class="site-header__nav pc">
         <ul class="nav">
-          <li class="nav__item" onclick="location.href=''">ホーム</li>
-          <li class="nav__item" onclick="location.href=''">サービス</li>
-          <li class="nav__item" onclick="location.href=''">施設</li>
-          <li class="nav__item" onclick="location.href=''">お知らせ</li>
+          <li class="nav__item" onclick="location.href='<?php echo home_url('/'); ?>'">ホーム</li>
+          <li class="nav__item" onclick="location.href='<?php echo get_page_link(14); ?>'">サービス</li>
+          <li class="nav__item" onclick="location.href='<?php echo get_page_link(14); ?>'">施設</li>
+          <li class="nav__item" onclick="location.href='<?php echo get_page_link(14); ?>'">お知らせ</li>
           <li class="nav__item--bg">
             <a class="bg-blue">
               <i class="far fa-address-card"></i>
