@@ -10,49 +10,7 @@ const md = 768;
 スマホを横にした時にリロードする
 ================================================================*/
 window.addEventListener("orientationchange", () => location.reload());
-
-
-/*================================================================
-背景遅延
-================================================================*/
-/* 背景遅延が発生する箇所のclassを 'parallax_box'とする */
-/* 背景遅延が発生するimg要素のclassを 'picture'とする */
-const parallax_box = document.getElementsByClassName('parallax_box');
-const parallax_target = document.getElementsByClassName('parallax_target');
-const parallax = () => {
-  let speed = 0;//パララックス用のスクロール速度
-  let positionTop = 0;//media query用のbackgroundposition(Y軸)
-  let positionLeft = 0;//media query用のbackgroundposition(X軸)
-
-  for (let i = 0; i < parallax_box.length; i++) {
-    let parallax_window_position = parallax_box[i].getBoundingClientRect().top;//parallax_boxの位置（画面上からの距離)
-    let parallax_position = parallax_window_position + scrollY;//parallax_boxの位置（ページトップからの距離）
-
-      if (windowSize > md) {
-        //pc画面
-        speed = -0.2;
-        positionTop = -100;
-        positionLeft = '50%';
-    } else if (md >= windowSize > sp) {
-        //md画面
-      positionTop = 100;
-        speed = -0.2;
-        positionLeft = '50%';
-    } else {
-        //sp画面
-      positionTop = 0;
-        speed = -0.2;
-        positionLeft = '50%';
-      }
-
-      if (scrollY > parallax_position) {
-        let position = (scrollY - parallax_position) * speed + positionTop +'px';
-        parallax_target[i].style.backgroundPosition = positionLeft + position;
-      } else {
-        parallax_target[i].style.backgroundPosition = positionLeft + positionTop + 'px';
-      }
-    }
-}
+console.log('front')
 
 
 
@@ -148,69 +106,6 @@ const smoothScroll = smoothScrollTrigger => {
 
 
 /*================================================================
-  施設ページのプラスボタンのトグルアクション
-================================================================ */
-let plusBtns = document.getElementsByClassName('icon-plus');
-let areaItems = document.getElementsByClassName('facilities-area__item');
-let areaLinks = document.getElementsByClassName('btn-arrow-down');
-let plusBtnToggle = [false, false, false, false, false, false];
-
-
-
-for (let i = 0; i < plusBtns.length; i++) {
-  let areaLink = areaLinks[i]
-  let plusBtn = plusBtns[i];
-  let area = areaItems[i];
-
-  //activeクラスをつける関数
-  const togglePlusBtn = () => {
-    plusBtnToggle[i] = !plusBtnToggle[i];
-      if (plusBtnToggle[i] === true) {
-        area.classList.add('active');
-        plusBtn.classList.add('active');
-      } else {
-        area.classList.remove('active');
-        plusBtn.classList.remove('active');
-      }
-  }
-  //クリックアクション
-  areaLink.addEventListener('click', () => {
-    togglePlusBtn();
-  })
-  plusBtn.addEventListener('click', () => {
-    console.log('click');
-    togglePlusBtn();
-  })
-}
-
-/*================================================================
-  お知らせページのカードアクション
-================================================================ */
-const cards = document.getElementsByClassName('news-card');
-function addHoverClass(id_value) {
-  const target = document.getElementById(id_value);
-  const card = target.parentElement;
-  const image = target.nextElementSibling.nextElementSibling;
-  console.log(card);
-  card.classList.add('hover');
-  image.classList.add('hover');
-
-}
-function removeHoverClass(id_value) {
-  const target = document.getElementById(id_value);
-  const card = target.parentElement;
-  const image = target.nextElementSibling.nextElementSibling;
-  card.classList.remove('hover');
-  image.classList.remove('hover');
-}
-
-
-/*================================================================
-  onclickで特定のurlへリンクする
-================================================================ */
-
-
-/*================================================================
   hamburger のトグルアクション
 ================================================================ */
 const hamburger = document.getElementsByClassName('hamburger')[0];
@@ -226,7 +121,7 @@ hamburger.addEventListener('click', () => {
 if (hamburgerToggle === false) {
     hamburgerToggle = true;
       hamburger.classList.add('active');
-      logo.classList.add('active'); /*こだわりページの時に消さなければならないのを制御する必要あり */
+      logo.classList.add('active');
       headerNav.classList.add('active');
       globalMenuSp.classList.add('active');
 } else {
@@ -244,23 +139,18 @@ if (hamburgerToggle === false) {
 /*================================================================
 ふわっと出てくるアニメーション
 ================================================================*/
-ScrollReveal().reveal('.fade', {
-  distance: "50px",
-  opacity: 0,
-  duration: 1500, // アニメーションの完了にかかる時間
-  viewFactor: 0.1, // 0~1,どれくらい見えたら実行するか
-  reset: true,   // 何回もアニメーション表示するか
-  origin: "bottom"
-});
+// ScrollReveal().reveal('.fade', {
+//   distance: "50px",
+//   opacity: 0,
+//   duration: 1500, // アニメーションの完了にかかる時間
+//   viewFactor: 0.1, // 0~1,どれくらい見えたら実行するか
+//   reset: true,   // 何回もアニメーション表示するか
+//   origin: "bottom"
+// });
 
 /*================================================================
 functionの実行
 ================================================================*/
-window.onscroll = () => {
-  parallax();
-}
-
-
 
 window.addEventListener('DOMContentLoaded', () => {
 

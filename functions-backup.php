@@ -188,39 +188,3 @@ if (defined('JETPACK__VERSION')) {
  */
 define('WP_SCSS_ALWAYS_RECOMPILE', true);
 /* ================================================================================ */
-
-
-
-/**
- * JSファイルを読み込ませる
- * jqueryの後に読み込み
- * バージョン指定なし
- * body終了タグ直前に読み込み
- */
-function load_scripts()
-{
-  if ($pagename = get_query_var('pagename')) {
-    if (file_exists(get_stylesheet_directory() . '/js/' . $pagename . '.js')) {
-      wp_enqueue_script($pagename, get_stylesheet_directory_uri() . '/js/' . $pagename . '.js', array('jquery'), null, true);
-    }
-  }
-}
-add_action('wp_enqueue_scripts', 'load_scripts');
-
-/**
- * アイキャッチ画像を設定していない場合、投稿ページの1枚目の画像を表示する
- */
-function catch_first_image()
-{
-  global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img = $matches[1][0];
-
-  if (empty($first_img)) { //Defines a default image
-    $first_img = "/images/default.jpg";
-  }
-  return $first_img;
-}

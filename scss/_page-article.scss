@@ -51,6 +51,11 @@ article-section
 }
 .article {
   width: 100%;
+  border-bottom: 1px solid $whitegray;
+  @include mb3;
+  @include mq-down {
+    @include mb2;
+  }
   &__ttl {
     border-bottom: 1px solid $gray;
     padding-bottom: 16px;

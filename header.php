@@ -38,8 +38,8 @@
         <ul class="nav">
           <li class="nav__item" onclick="location.href='<?php echo home_url('/'); ?>'">ホーム</li>
           <li class="nav__item" onclick="location.href='<?php echo get_page_link(14); ?>'">サービス</li>
-          <li class="nav__item" onclick="location.href='<?php echo get_page_link(14); ?>'">施設</li>
-          <li class="nav__item" onclick="location.href='<?php echo get_page_link(14); ?>'">お知らせ</li>
+          <li class="nav__item" onclick="location.href='<?php echo get_page_link(16); ?>'">施設</li>
+          <li class="nav__item" onclick="location.href='<?php echo get_page_link(18); ?>'">お知らせ</li>
           <li class="nav__item--bg">
             <a class="bg-blue">
               <i class="far fa-address-card"></i>

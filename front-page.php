@@ -48,7 +48,6 @@ get_header();
       <dl class="main-visual__news--articlw">
         <dt class="news-ymd main-visual-txt"><?php echo get_the_date('Y-n-j'); ?></dt>
         <dd class="news-ttl main-visual-txt"><?php the_title(); ?></dd>
-        <p><?php echo get_the_ID(); ?></p>
         <?php
       endforeach; // ループの終了
       wp_reset_postdata(); // 直前のクエリを復元する
