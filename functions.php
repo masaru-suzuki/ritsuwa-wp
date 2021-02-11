@@ -224,3 +224,150 @@ function catch_first_image()
   }
   return $first_img;
 }
+
+
+/**
+ * ページネーション
+ */
+
+function pagenation($pages = '', $range = 2)
+{
+  $showitems = ($range * 1) + 1;
+  global $paged;
+  if (empty($paged)) $paged = 1;
+  if ($pages == '') {
+    global $wp_query;
+    $pages = $wp_query->max_num_pages;
+    if (!$pages) {
+      $pages = 1;
+    }
+  }
+  if (1 != $pages) {
+    // 画像を使う時用に、テーマのパスを取得
+    // $img_pass = get_template_directory_uri();
+
+
+    echo "<div class=\"page-nation01\">";
+    // 「1/2」表示 現在のページ数 / 総ページ数
+    // echo "<div class=\"m-pagenation__result\">" . $paged . "/" . $pages . "</div>";
+    // echo $pages;
+
+    /*
+    *return-areaここから
+     */
+    echo "<div class=\"return-area\">";
+
+    if (is_numeric($paged) && $paged === 1) {
+      //1ページ目の時は【最初】【前へ】を表示しない
+      echo "<div class=\"page-nation-link return-first empty\"> </div>";
+      echo "<div class=\"page-nation-link prev empty\"> </div>";
+    } else if (is_numeric($paged) && $paged === 2) {
+      //2ページ目の時は【最初】を表示せず、【前へ】のみ表示
+      echo "<div class=\"page-nation-link return-first empty\"> </div>";
+      echo "<a href='" . get_pagenum_link($paged - 1) . "' class=\"page-nation-link prev\">前へ</a>";
+    } else if (is_numeric($paged) && $paged > 2) {
+      //3ページ目以降【最初】【前へ】を表示
+      echo "<a href='" . get_pagenum_link(1) . "' class=\"page-nation-link return-first\">最初</a>";
+      echo "<a href='" . get_pagenum_link($paged - 1) . "' class=\"page-nation-link prev\">前へ</a>";
+    } else {
+      echo '正しくページ番号を入力してください';
+      exit();
+    }
+
+    echo "</div>";
+    /**
+     * /return-areaここまで
+     *  */
+
+    // echo '現在のページ' . $paged;
+
+    /*
+    * move-areaここから
+     */
+    echo "<div class=\"move-area\">";
+
+    if (is_numeric($paged) && $paged === $pages) {
+      //最後ページ目の時は【最後】【次へ】を表示しない
+      echo "<div class=\"page-nation-link move-next empty\"> </div>";
+      echo "<div class=\"page-nation-link move-last empty\"> </div>";
+    } else if (is_numeric($paged) && $paged === $pages - 1) {
+      //最後から1ページ目の時は【最後】を表示せず、【次へ】のみ表示
+      echo "<div class=\"page-nation-link move-last empty\"> </div>";
+      echo "<a href='" . get_pagenum_link($paged + 1) . "' class=\"page-nation-link move-next\">次へ</a>";
+    } else if (is_numeric($paged) && $pages - 1) {
+      //最後から3ページ目以前【最後】【次へ】を表示
+      echo "<a href='" . get_pagenum_link($paged + 1) . "' class=\"page-nation-link move-next\">次へ</a>";
+      echo "<a href='" . get_pagenum_link($pages) . "' class=\"page-nation-link move-last\">最後</a>";
+    } else {
+      echo '正しくページ番号を入力してください';
+      exit();
+    }
+
+    echo "</div>";
+    /**
+     * /return-areaここまで
+     *  */
+
+    // 「前へ」を表示
+    // if ($paged > 1) echo "<div class=\"return-area\"><a href='" . get_pagenum_link($paged - 1) . "'>前へ</a></div>";
+
+
+    // ページ番号を出力
+    // echo "<ol class=\"m-pagenation__body\">\n";
+    // for ($i = 1; $i <= $pages; $i++) {
+    //   if (1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems)) {
+    //     echo ($paged == $i) ? "<li class=\"-current\">" . $i . "</li>" : // 現在のページの数字はリンク無し
+    //       "<li><a href='" . get_pagenum_link($i) . "'>" . $i . "</a></li>";
+    //   }
+    // }
+    // [...] 表示
+    // if (($paged + 4) < $pages) {
+    //   echo "<li class=\"notNumbering\">...</li>";
+    //   echo "<li><a href='" . get_pagenum_link($pages) . "'>" . $pages . "</a></li>";
+    // }
+    // echo "</ol>\n";
+
+
+    // 「次へ」を表示
+    // if ($paged < $pages) echo "<div class=\"move-area\"><a href='" . get_pagenum_link($paged + 1) . "'>次へ</a></div>";
+    echo "</div>\n";
+  }
+}
+
+
+//Pagenation
+// function pagination($pages = '', $range = 2)
+// {
+//   $showitems = ($range * 2) + 1; //表示するページ数（５ページを表示）
+
+//   global $paged; //現在のページ値
+//   if (empty($paged)) $paged = 1; //デフォルトのページ
+
+//   if ($pages == '') {
+//     global $wp_query;
+//     $pages = $wp_query->max_num_pages; //全ページ数を取得
+//     if (!$pages) //全ページ数が空の場合は、１とする
+//     {
+//       $pages = 1;
+//     }
+//   }
+
+//   if (1 != $pages) //全ページが１でない場合はページネーションを表示する
+//   {
+//     echo "<div class=\"pagenation\">\n";
+//     echo "<ul>\n";
+//     //Prev：現在のページ値が１より大きい場合は表示
+//     if ($paged > 1) echo "<li class=\"prev\"><a href='" . get_pagenum_link($paged - 1) . "'>Prev</a></li>\n";
+
+//     for ($i = 1; $i <= $pages; $i++) {
+//       if (1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems)) {
+//         //三項演算子での条件分岐
+//         echo ($paged == $i) ? "<li class=\"active\">" . $i . "</li>\n" : "<li><a href='" . get_pagenum_link($i) . "'>" . $i . "</a></li>\n";
+//       }
+//     }
+//     //Next：総ページ数より現在のページ値が小さい場合は表示
+//     if ($paged < $pages) echo "<li class=\"next\"><a href=\"" . get_pagenum_link($paged + 1) . "\">Next</a></li>\n";
+//     echo "</ul>\n";
+//     echo "</div>\n";
+//   }
+// }

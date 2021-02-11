@@ -34,10 +34,20 @@
         &::before {
           content: "\f100";
         }
+        &.empty {
+          &::before {
+            content: "";
+          }
+        }
       }
       &.prev {
         &::before {
           content: "\f104";
+        }
+        &.empty {
+          &::before {
+            content: "";
+          }
         }
       }
     }
@@ -74,10 +84,20 @@
         &::before {
           content: "\f105";
         }
+        &.empty {
+          &::before {
+            content: "";
+          }
+        }
       }
       &.move-last {
         &::before {
           content: "\f101";
+        }
+        &.empty {
+          &::before {
+            content: "";
+          }
         }
       }
     }

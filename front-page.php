@@ -56,7 +56,7 @@ get_header();
     </div>
   </div>
 
-  <!-- service visual -->
+  <!-- service section -->
   <div class="service-section">
     <div class="service-section__img-box pc">
       <img src="<?php echo bloginfo('template_url'); ?>/images/ikigai.jpg" alt="">
@@ -67,12 +67,12 @@ get_header();
           class="sct-ttl kakko"><span class="txt-whiteblue">生きがい</span><span class="sub-ttl1">を感じてもらいたい</span><span class="sub-ttl">それが私たちの願いです。</span></h2>
         <p>お元気になられてご自身の生きがいにつながる…そんなところでありたいと思っています。</p>
         <p>その為には、ご自身の家で過ごすような健やかな生活が必要だと考え、リツワで働く全員が、みなさまが楽しく健やかな暮らしを送れるように全力でサポートさせてもらっています。</p>
-        <a href="" class="btn-round">サービス一覧</a>
+        <a href="<?php echo get_page_link(14); ?>" class="btn-round">サービス一覧</a>
       </div>
     </div>
   </div>
 
-  <!-- facility visual -->
+  <!-- facility section -->
   <div class="facility-section">
     <div class="facility-section__txt-box">
       <div class="txt-box">
@@ -80,7 +80,7 @@ get_header();
         <img class="img-box01 pc-none" src="<?php echo bloginfo('template_url'); ?>/images/top_facility01.jpg" alt="">
         <p>リツワの施設は、まるで自宅に居るかのようなアットホームな雰囲気を重視してつくられています。それが、利用者様の笑顔やご自身が元気になることに繋がっています。</p>
         <p>どんな人でも、「その人らしい生活を送ることができる」そんなことを可能にしてくれる環境づくりに日々取り組んでいます。</p>
-        <a href="" class="btn-round">施設一覧</a>
+        <a href="<?php echo get_page_link(16); ?>" class="btn-round">施設一覧</a>
       </div>
     </div>
     <div class="facility-section__img-box pc">
