@@ -418,7 +418,9 @@ text
     margin: 0 10px;
   }
 }
-.news-side-link__item {
+
+//.news-side-link__itemでfontを管理したかった。何か方法はあるか調べる
+.news-side-link__list {
   @include cmn_txt($fz: 14, $ls: 1.6, $lh: 50, $mfz: 12, $mls: 1.6, $mlh: 40, $sfz: 12, $sls: 1.6, $slh: 30);
 }
 .article-info {

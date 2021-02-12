@@ -148,7 +148,8 @@ side-bar
     background-color: $whiteblue;
   }
   &__list {
-    .news-side-link__item {
+    //.news-side-link__itemのクラスメイがついているが、phpで扱うときはliで出力されるから
+    li {
       padding: 0 16px; //linkの当たり判定の調整
       border-bottom: 1px solid $gray;
       cursor: pointer;

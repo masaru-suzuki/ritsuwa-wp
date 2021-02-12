@@ -54,12 +54,25 @@ get_header();
         <?php
 
         $wp_query = new WP_Query();
-        $my_posts = array(
-          'post_type' => 'post',
-          'post__not_in' => get_option('sticky_posts'),
-          'posts_per_page' => '6',
-          'paged' => $paged
-        );
+
+        if (empty($_REQUEST['id'])) {
+          $my_posts = array(
+            'post_type' => 'post',
+            'post__not_in' => get_option('sticky_posts'),
+            'posts_per_page' => '6',
+            'paged' => $paged,
+          );
+        } else {
+          $id = htmlspecialchars($_REQUEST['id']);
+          $my_posts = array(
+            'post_type' => 'post',
+            'post__not_in' => get_option('sticky_posts'),
+            'posts_per_page' => '6',
+            'paged' => $paged,
+            'cat' => $id
+          );
+        }
+
         $wp_query->query($my_posts);
         if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
             // タイトル
@@ -103,7 +116,7 @@ get_header();
 
       <?php
       if (function_exists('pagenation')) {
-        pagenation();
+        pagenation($my_posts);
       } ?>
 
     </div>
@@ -115,18 +128,41 @@ get_header();
       <div class="news-side-link">
         <p class="news-side-link__ttl">カテゴリー</p>
         <ul class="news-side-link__list">
-          <li class="news-side-link__item active" onclick="location.href=''">全て</li>
-          <li class="news-side-link__item" onclick="location.href=''">お知らせ</li>
-          <li class="news-side-link__item" onclick="location.href=''">ブログ</li>
+          <li class="news-side-link__item active" onclick="location.href='<?php echo get_page_link(18); ?>'">全て</li>
+          <li class="news-side-link__item" onclick="location.href='<?php echo get_page_link(18); ?>?id=2'">ブログ</li>
+          <li class="news-side-link__item" onclick="location.href='<?php echo get_page_link(18); ?>?id=3'">お知らせ</li>
         </ul>
       </div>
       <!-- Recent Article -->
       <div class="news-side-link pc">
         <p class="news-side-link__ttl">最新の記事</p>
         <ul class="news-side-link__list">
-          <li class="news-side-link__item" onclick="location.href=''">2020年度の年末年始休暇…</li>
-          <li class="news-side-link__item" onclick="location.href=''">誕生日&バーベキュー大会…</li>
-          <li class="news-side-link__item" onclick="location.href=''">リツワのサイトをリニュー…</li>
+
+          <?php
+
+          $wp_query = new WP_Query();
+          $my_posts = array(
+            'post_type' => 'post',
+            'post__not_in' => get_option('sticky_posts'),
+            'posts_per_page' => '3',
+          );
+          $wp_query->query($my_posts);
+          if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
+              // タイトル
+              $title = wp_trim_words(get_the_title(), 13, '...');
+
+              //パーマリンク
+              $link = get_the_permalink()
+
+          ?>
+
+              <li class="news-side-link__item" onclick="location.href='<?php echo $link; ?>'"><?php echo $title; ?></li>
+
+
+          <?php endwhile;
+          endif;
+          wp_reset_postdata(); ?>
+
         </ul>
       </div>
 
@@ -134,9 +170,15 @@ get_header();
       <div class="news-side-link pc">
         <p class="news-side-link__ttl">アーカイブ</p>
         <ul class="news-side-link__list archives">
-          <li class="news-side-link__item" onclick="location.href=''">2020年12月</li>
-          <li class="news-side-link__item" onclick="location.href=''">2020年10月</li>
-          <li class="news-side-link__item" onclick="location.href=''">2020年9月</li>
+          <?php
+          $my_posts_archives = array(
+            'post_type' => 'post',
+            'limit' => '3',
+            'show_post_count' => true,
+            'type' => 'yearly'
+          );
+          wp_get_archives($my_posts_archives);
+          ?>
         </ul>
       </div>
 

@@ -28,10 +28,8 @@ get_header();
       <p class="main-visual-txt">受付時間: 平日:9:00~17:00</p>
     </div>
     <div class="main-visual__links sp-none">
-      <a class="facebook" href=""><img class="mv-facebook"
-          src="<?php echo bloginfo('template_url'); ?>/images/facebook_blue.png" alt=""></a>
-      <a class="instagram" href=""><img class="mv-instagram"
-          src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
+      <a class="facebook" href=""><img class="mv-facebook" src="<?php echo bloginfo('template_url'); ?>/images/facebook_blue.png" alt=""></a>
+      <a class="instagram" href=""><img class="mv-instagram" src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
     </div>
     <div class="main-visual__news sp-none">
       <!-- 最新の投稿記事の取得 -->
@@ -43,16 +41,16 @@ get_header();
       foreach ($posts as $post) : // ループの開始
         setup_postdata($post); // 記事データの取得
       ?>
-      <a class="news-link" href="<?php the_permalink(); ?>"></a><!-- newsへのリンクをbox全体に広げる-->
-      <p class="main-visual__news--header main-visual-txt">NEWS</p>
-      <dl class="main-visual__news--articlw">
-        <dt class="news-ymd main-visual-txt"><?php echo get_the_date('Y-n-j'); ?></dt>
-        <dd class="news-ttl main-visual-txt"><?php the_title(); ?></dd>
+        <a class="news-link" href="<?php the_permalink(); ?>"></a><!-- newsへのリンクをbox全体に広げる-->
+        <p class="main-visual__news--header main-visual-txt">NEWS</p>
+        <dl class="main-visual__news--articlw">
+          <dt class="news-ymd main-visual-txt"><?php echo get_the_date('Y-n-j'); ?></dt>
+          <dd class="news-ttl main-visual-txt"><?php the_title(); ?></dd>
         <?php
       endforeach; // ループの終了
       wp_reset_postdata(); // 直前のクエリを復元する
         ?>
-      </dl>
+        </dl>
     </div>
   </div>
 
@@ -63,8 +61,7 @@ get_header();
     </div>
     <div class="service-section__txt-box">
       <div class="txt-box">
-        <h2
-          class="sct-ttl kakko"><span class="txt-whiteblue">生きがい</span><span class="sub-ttl1">を感じてもらいたい</span><span class="sub-ttl">それが私たちの願いです。</span></h2>
+        <h2 class="sct-ttl kakko"><span class="txt-whiteblue">生きがい</span><span class="sub-ttl1">を感じてもらいたい</span><span class="sub-ttl">それが私たちの願いです。</span></h2>
         <p>お元気になられてご自身の生きがいにつながる…そんなところでありたいと思っています。</p>
         <p>その為には、ご自身の家で過ごすような健やかな生活が必要だと考え、リツワで働く全員が、みなさまが楽しく健やかな暮らしを送れるように全力でサポートさせてもらっています。</p>
         <a href="<?php echo get_page_link(14); ?>" class="btn-round">サービス一覧</a>
@@ -103,24 +100,50 @@ get_header();
         <div class="news-box">
           <h2 class="sub-ttl">NEWS</h2>
           <table class="news-table">
-            <tr>
-              <td class="table-txt ymd">2021-1-1</td>
-              <td class="table-txt">新年会を行いました。</td>
-              <td class="table-txt">あけましておめでとうござい</td>
-            </tr>
-            <tr>
-              <td class="table-txt ymd">2021-1-14</td>
-              <td class="table-txt">どんと祭で出店しまし…</td>
-              <td class="table-txt">1月14日はどんと祭に出店し
-                …</td>
-            </tr>
-            <tr>
-              <td class="table-txt ymd">2021-2-3</td>
-              <td class="table-txt">豆まきを行いました。</td>
-              <td class="table-txt">2月3日は毎年恒例の豆まき。</td>
-            </tr>
+
+            <?php
+
+            $wp_query = new WP_Query();
+            $my_posts = array(
+              'post_type' => 'post',
+              'post__not_in' => get_option('sticky_posts'),
+              'posts_per_page' => '3',
+            );
+            $wp_query->query($my_posts);
+            if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
+                // タイトル
+                $title = wp_trim_words(get_the_title(), 10, '...');
+
+                // 記事のカテゴリー情報を取得する
+                $cat = get_the_category();
+                $cat_name = $cat[0]->cat_name; // カテゴリー名
+
+                //記事のテキスト
+                $content = wp_trim_words(get_the_content(), 14, '...');
+
+                //記事のタグを取得(1つ)
+                $tag = get_the_tags();
+                $tag_name = $tag[0]->name;
+
+                //記事の作成日
+                $date = get_the_date('Y-n-j');
+
+                //施設名
+                $facility = get_the_author();
+            ?>
+                <tr>
+                  <td class="table-txt ymd"><?php echo $date; ?></td>
+                  <td class="table-txt"><?php echo $title; ?></td>
+                  <td class="table-txt"><?php echo $content; ?></td>
+                </tr>
+
+            <?php endwhile;
+            endif;
+            wp_reset_postdata(); ?>
+
           </table>
-          <a href="" class="btn-round">お知らせ一覧</a>
+
+          <a href="<?php echo get_page_link(18); ?>" class="btn-round">お知らせ一覧</a>
         </div>
       </div>
     </div>

@@ -1,7 +1,12 @@
 <?php
 
 /**
- * The template for displaying archive pages
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -13,38 +18,68 @@ get_header();
 
 <main id="primary" class="site-main event-page">
 
+  <!-- main visual -->
+  <div class="page-top">
+    <div class="ttl-box">
+      <h1 class="page-ttl">お知らせ一覧<br><span>news</span></h1>
+    </div>
+    <div class="main-visual">
+      <div class="main-visual__call sp-none">
+        <a class="call-btn" href="tel:00000000000"></a><!-- 電話へのリンクをbox全体に広げる-->
+        <p class="main-visual-call-number">000-000-0000</p>
+        <p class="main-visual-txt">受付時間: 平日:9:00~17:00</p>
+      </div>
+      <div class="main-visual__links sp-none">
+        <a class="facebook" href=""><img class="mv-facebook"
+            src="<?php echo bloginfo('template_url'); ?>/images/facebook_blue.png" alt=""></a>
+        <a class="instagram" href=""><img class="mv-instagram"
+            src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
+      </div>
+    </div>
+  </div>
 
+  <!-- lead section -->
+  <div class="lead-section">
+    <div class="lead-section__ttl">
+      <h2 class="sct-ttl2">イベント・お知らせ<span>news</span></h2>
+    </div>
+    <p class="lead-section__lead">各事業所ごとに現場のスタッフがいろいろとアイディアを出し合って、毎回利用者様に楽しんでもらっています。</p>
+    <p class="lead-section__lead">こういったイベントや行事も手づくり感があって、リツワらしいアットホームな雰囲気になっています。</p>
+  </div>
 
   <!-- event section -->
   <div class="event-section">
 
     <!-- event-section__contents -->
     <div class="event-section__contents">
+      <?php
+    echo get_query_var('year');
+    ?>
       <ul class="news-list">
-        <p>アーカイブphpです</p>
-        <p>ページは<?php echo $paged; ?></p>
-        <p>総ページは<?php echo $wp_query->max_num_pages; ?></p>
-
         <?php
+        $wp_query = new WP_Query();
 
-        //アーカイブの年情報の取得
-        $uri = $_SERVER['REQUEST_URI'];
-        $year = preg_replace('/[^0-9]/', '', $uri);
-        $my_posts_year = array(
-          'post_type' => 'post',
-          'post__not_in' => get_option('sticky_posts'),
-          'posts_per_page' => '2',
+        // if (empty($_REQUEST['id'])) {
+        //   $my_posts = array(
+        //     'post_type' => 'post',
+        //     'post__not_in' => get_option('sticky_posts'),
+        //     'posts_per_page' => '6',
+        //     'paged' => $paged,
+        //   );
+        // } else {
+        //   $id = htmlspecialchars($_REQUEST['id']);
+
+        $my_posts = array(
+          // 'post_type' => 'post',
+          // 'post__not_in' => get_option('sticky_posts'),
+          'posts_per_page' => '6',
           'paged' => $paged,
-          'year' => $year
-
+          'year' => get_query_var('year')
         );
-        $wp_query->query($my_posts_year);
 
-        ?>
-        <p>総ページは<?php echo $wp_query->max_num_pages; ?></p>
 
-        <?php
-        /* Start the Loop */
+
+        $wp_query->query($my_posts);
         if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
             // タイトル
             $title = wp_trim_words(get_the_title(), 10, '...');
@@ -66,47 +101,32 @@ get_header();
             //施設名
             $facility = get_the_author();
         ?>
-
-
-
-            <li class="news-card">
-              <a id="<?php echo the_ID(); ?>" class="news-card__link" onmouseover="addHoverClass(this.id)" onmouseout="removeHoverClass(this.id)" href="<?php the_permalink(); ?>"></a>
-              <div class="tag">
-                <p class="tag-txt"><?php echo $cat_name; ?></p>
-              </div>
-              <div class="news-card__img-box">
-                <?php the_post_thumbnail('full'); ?>
-              </div>
-              <div class="news-card__txt-box">
-                <h3 class="news-card-ttl"><?php echo $title; ?></h3>
-                <p class="news-card-txt"><?php echo $content; ?></p>
-                <p class="news-card-info"><?php echo $date; ?><span class="news-card__info-divide">|</span><?php echo $facility; ?></p>
-              </div>
-            </li>
-
-
-
-        <?php
-
-          // get_template_part('template-parts/content', get_post_type());
-
-          endwhile;
+        <li class="news-card">
+          <a id="<?php echo the_ID(); ?>" class="news-card__link" onmouseover="addHoverClass(this.id)"
+            onmouseout="removeHoverClass(this.id)" href="<?php the_permalink(); ?>"></a>
+          <div class="tag">
+            <p class="tag-txt"><?php echo $cat_name; ?></p>
+          </div>
+          <div class="news-card__img-box">
+            <?php the_post_thumbnail('full'); ?>
+          </div>
+          <div class="news-card__txt-box">
+            <h3 class="news-card-ttl"><?php echo $title; ?></h3>
+            <p class="news-card-txt"><?php echo $content; ?></p>
+            <p
+              class="news-card-info"><?php echo $date; ?><span class="news-card__info-divide">|</span><?php echo $facility; ?></p>
+          </div>
+        </li>
+        <?php endwhile;
         endif;
-        wp_reset_postdata();
-
-        // the_posts_navigation();
-
-
-        ?>
+        wp_reset_postdata(); ?>
       </ul>
 
       <?php
-
-
-
       if (function_exists('pagenation')) {
-        pagenation($my_posts_year);
+        pagenation();
       } ?>
+
     </div>
 
     <!-- event-section__side -->
@@ -144,7 +164,7 @@ get_header();
 
           ?>
 
-              <li class="news-side-link__item" onclick="location.href='<?php echo $link; ?>'"><?php echo $title; ?></li>
+          <li class="news-side-link__item" onclick="location.href='<?php echo $link; ?>'"><?php echo $title; ?></li>
 
 
           <?php endwhile;
@@ -158,15 +178,9 @@ get_header();
       <div class="news-side-link pc">
         <p class="news-side-link__ttl">アーカイブ</p>
         <ul class="news-side-link__list archives">
-          <?php
-          $my_posts_archives = array(
-            'post_type' => 'post',
-            'limit' => '3',
-            'show_post_count' => true,
-            'type' => 'yearly'
-          );
-          wp_get_archives($my_posts_archives);
+          <?php //wp_get_archives('post_type=post&type=monthly&show_post_count=1&limit=3');
           ?>
+          <?php wp_get_archives(array('type' => 'yearly', 'limit' => '3', 'post_type' => 'post', 'show_post_count' => true)); ?>
         </ul>
       </div>
 
@@ -197,14 +211,6 @@ get_header();
       <a href=""></a>
     </div>
   </div>
-
-
-
-
-
-
-
-
 </main><!-- #main -->
 
 <?php

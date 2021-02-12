@@ -22,9 +22,9 @@
     </div>
     <div class="footer-wrapper__center-box">
       <ul>
-        <li><a class="footer-txt" href="">サービス一覧</a></li>
-        <li><a class="footer-txt" href="">お知らせ</a></li>
-        <li><a class="footer-txt" href="">施設一覧</a></li>
+        <li><a class="footer-txt" href="<?php echo get_page_link(14); ?>">サービス一覧</a></li>
+        <li><a class="footer-txt" href="<?php echo get_page_link(18); ?>">お知らせ</a></li>
+        <li><a class="footer-txt" href="<?php echo get_page_link(16); ?>">施設一覧</a></li>
       </ul>
     </div>
     <div class="footer-wrapper__right-box">
