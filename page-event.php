@@ -30,8 +30,10 @@ get_header();
         <p class="main-visual-txt">受付時間: 平日:9:00~17:00</p>
       </div>
       <div class="main-visual__links sp-none">
-        <a class="facebook" href=""><img class="mv-facebook" src="<?php echo bloginfo('template_url'); ?>/images/facebook_blue.png" alt=""></a>
-        <a class="instagram" href=""><img class="mv-instagram" src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
+        <a class="facebook" href=""><img class="mv-facebook"
+            src="<?php echo bloginfo('template_url'); ?>/images/facebook_blue.png" alt=""></a>
+        <a class="instagram" href=""><img class="mv-instagram"
+            src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
       </div>
     </div>
   </div>
@@ -95,20 +97,22 @@ get_header();
             //施設名
             $facility = get_the_author();
         ?>
-            <li class="news-card">
-              <a id="<?php echo the_ID(); ?>" class="news-card__link" onmouseover="addHoverClass(this.id)" onmouseout="removeHoverClass(this.id)" href="<?php the_permalink(); ?>"></a>
-              <div class="tag">
-                <p class="tag-txt"><?php echo $cat_name; ?></p>
-              </div>
-              <div class="news-card__img-box">
-                <?php the_post_thumbnail('full'); ?>
-              </div>
-              <div class="news-card__txt-box">
-                <h3 class="news-card-ttl"><?php echo $title; ?></h3>
-                <p class="news-card-txt"><?php echo $content; ?></p>
-                <p class="news-card-info"><?php echo $date; ?><span class="news-card__info-divide">|</span><?php echo $facility; ?></p>
-              </div>
-            </li>
+        <li class="news-card">
+          <a id="<?php echo the_ID(); ?>" class="news-card__link" onmouseover="addHoverClass(this.id)"
+            onmouseout="removeHoverClass(this.id)" href="<?php the_permalink(); ?>"></a>
+          <div class="tag">
+            <p class="tag-txt"><?php echo $cat_name; ?></p>
+          </div>
+          <div class="news-card__img-box">
+            <?php the_post_thumbnail('full'); ?>
+          </div>
+          <div class="news-card__txt-box">
+            <h3 class="news-card-ttl"><?php echo $title; ?></h3>
+            <p class="news-card-txt"><?php echo $content; ?></p>
+            <p
+              class="news-card-info"><?php echo $date; ?><span class="news-card__info-divide">|</span><?php echo $facility; ?></p>
+          </div>
+        </li>
         <?php endwhile;
         endif;
         wp_reset_postdata(); ?>
@@ -144,7 +148,7 @@ get_header();
           $my_posts = array(
             'post_type' => 'post',
             'post__not_in' => get_option('sticky_posts'),
-            'posts_per_page' => '3',
+            'posts_per_page' => '2',
           );
           $wp_query->query($my_posts);
           if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
@@ -156,7 +160,7 @@ get_header();
 
           ?>
 
-              <li class="news-side-link__item" onclick="location.href='<?php echo $link; ?>'"><?php echo $title; ?></li>
+          <li class="news-side-link__item" onclick="location.href='<?php echo $link; ?>'"><?php echo $title; ?></li>
 
 
           <?php endwhile;

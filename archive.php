@@ -22,8 +22,8 @@ get_header();
     <div class="event-section__contents">
       <ul class="news-list">
         <p>アーカイブphpです</p>
-        <p>ページは<?php echo $paged; ?></p>
-        <p>総ページは<?php echo $wp_query->max_num_pages; ?></p>
+        <p>pagedは<?php echo $paged; ?></p>
+        <p>pagesは<?php echo $wp_query->max_num_pages; ?></p>
 
         <?php
 
@@ -33,7 +33,7 @@ get_header();
         $my_posts_year = array(
           'post_type' => 'post',
           'post__not_in' => get_option('sticky_posts'),
-          'posts_per_page' => '2',
+          'posts_per_page' => '3',
           'paged' => $paged,
           'year' => $year
 
@@ -41,6 +41,9 @@ get_header();
         $wp_query->query($my_posts_year);
 
         ?>
+        <p>アーカイブphpです</p>
+        <p>pagedは<?php echo $paged; ?></p>
+        <p>pagesは<?php echo $wp_query->max_num_pages; ?></p>
         <p>総ページは<?php echo $wp_query->max_num_pages; ?></p>
 
         <?php

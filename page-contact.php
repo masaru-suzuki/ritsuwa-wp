@@ -20,14 +20,11 @@ get_header();
 
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-
-      <?php echo do_shortcode('[mwform_formkey key="2125"]'); ?>
-
+  <?php echo do_shortcode('[mwform_formkey key="2125"]'); ?>
   <?php endwhile;
   endif; ?>
   <!-- cta -->
-  <!-- <div class="cta-section">
+  <div class="cta-section">
     <div class="cta-section__box">
       <div class="ttl2">
         <h2>求人情報</h2>
@@ -42,7 +39,7 @@ get_header();
       <p class="cta-txt">リツワのサービスや事業所に関するお問い合わせはこちらをご覧ください。</p>
       <a href=""></a>
     </div>
-  </div> -->
+  </div>
 
 </main><!-- #main -->
 
