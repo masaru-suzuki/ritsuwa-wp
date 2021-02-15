@@ -121,6 +121,14 @@ function mr_the_archive_pager($query)
 }
 
 
+
+
+
+
+
+
+
+
 //元々のfile
 
 if (!defined('_S_VERSION')) {

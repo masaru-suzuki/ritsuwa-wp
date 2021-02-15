@@ -24,11 +24,11 @@
     </a>
     <meta itemprop="position" content="2" />
   </li>
-
+  <!--
   <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
     <a itemprop="item" href="カテゴリー2のURL">
       <span itemprop="name">ブログ</span>
     </a>
     <meta itemprop="position" content="3" />
-  </li>
+  </li> -->
 </ol>
