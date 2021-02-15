@@ -85,7 +85,7 @@ get_header();
         </div>
 
         <!-- article-section__side -->
-        <div class="article-section__side">
+        <div class="article-section__side" id="single-post-sidebar">
           <?php get_sidebar(); ?>
         </div>
 

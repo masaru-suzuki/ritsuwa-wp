@@ -16,7 +16,7 @@
 <div class="news-side-link">
   <p class="news-side-link__ttl">カテゴリー</p>
   <ul class="news-side-link__list">
-    <li class="news-side-link__item active" onclick="location.href='<?php echo get_page_link(18); ?>'">全て</li>
+    <li class="news-side-link__item" onclick="location.href='<?php echo get_page_link(18); ?>'">全て</li>
     <li class="news-side-link__item" onclick="location.href='<?php echo get_page_link(18); ?>?id=2'">ブログ</li>
     <li class="news-side-link__item" onclick="location.href='<?php echo get_page_link(18); ?>?id=3'">お知らせ</li>
   </ul>
@@ -66,7 +66,7 @@
       'show_post_count' => true,
       'type' => 'yearly'
     );
-    wp_get_archives($my_posts_archives);
+    wp_get_archives2($my_posts_archives);
     // wp_reset_postdata();
     ?>
   </ul>

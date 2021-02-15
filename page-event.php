@@ -79,22 +79,20 @@ get_header();
             //施設名
             $facility = get_the_author();
         ?>
-        <li class="news-card">
-          <a id="<?php echo the_ID(); ?>" class="news-card__link" onmouseover="addHoverClass(this.id)"
-            onmouseout="removeHoverClass(this.id)" href="<?php the_permalink(); ?>"></a>
-          <div class="tag">
-            <p class="tag-txt"><?php echo $cat_name; ?></p>
-          </div>
-          <div class="news-card__img-box">
-            <?php the_post_thumbnail('full'); ?>
-          </div>
-          <div class="news-card__txt-box">
-            <h3 class="news-card-ttl"><?php echo $title; ?></h3>
-            <p class="news-card-txt"><?php echo $content; ?></p>
-            <p
-              class="news-card-info"><?php echo $date; ?><span class="news-card__info-divide">|</span><?php echo $facility; ?></p>
-          </div>
-        </li>
+            <li class="news-card">
+              <a id="<?php echo the_ID(); ?>" class="news-card__link" onmouseover="addHoverClass(this.id)" onmouseout="removeHoverClass(this.id)" href="<?php the_permalink(); ?>"></a>
+              <div class="tag">
+                <p class="tag-txt"><?php echo $cat_name; ?></p>
+              </div>
+              <div class="news-card__img-box">
+                <?php the_post_thumbnail('full'); ?>
+              </div>
+              <div class="news-card__txt-box">
+                <h3 class="news-card-ttl"><?php echo $title; ?></h3>
+                <p class="news-card-txt"><?php echo $content; ?></p>
+                <p class="news-card-info"><?php echo $date; ?><span class="news-card__info-divide">|</span><?php echo $facility; ?></p>
+              </div>
+            </li>
         <?php endwhile;
         endif;
         wp_reset_postdata(); ?>
@@ -110,7 +108,7 @@ get_header();
 
 
     <!-- event-section__side -->
-    <div class="event-section__side">
+    <div class="event-section__side" id="page-event-sidebar">
       <?php get_sidebar(); ?>
     </div>
     <!-- /event-section__side -->

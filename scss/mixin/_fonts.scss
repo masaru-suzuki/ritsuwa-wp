@@ -345,6 +345,29 @@ title
   );
   font-weight: bold;
 }
+
+/*投稿ページのhタグスタイリング*/
+.article__contents {
+  h1 {
+    @include cmn_txt($fz: 40, $ls: 1.5, $lh: 80, $mfz: 30, $mls: 1.5, $mlh: 60, $sfz: 27, $sls: 1.5, $slh: 54);
+  }
+  h2 {
+    @include cmn_txt($fz: 35, $ls: 1.5, $lh: 70, $mfz: 27, $mls: 1.5, $mlh: 54, $sfz: 25, $sls: 1.5, $slh: 50);
+  }
+  h3 {
+    @include cmn_txt($fz: 30, $ls: 1.5, $lh: 60, $mfz: 24, $mls: 1.5, $mlh: 48, $sfz: 23, $sls: 1.5, $slh: 46);
+  }
+  h4 {
+    @include cmn_txt($fz: 25, $ls: 1.5, $lh: 50, $mfz: 21, $mls: 1.5, $mlh: 42, $sfz: 21, $sls: 1.5, $slh: 42);
+  }
+  h5 {
+    @include cmn_txt($fz: 20, $ls: 1.5, $lh: 40, $mfz: 18, $mls: 1.5, $mlh: 36, $sfz: 18, $sls: 1.5, $slh: 36);
+  }
+  h6 {
+    @include cmn_txt($fz: 15, $ls: 1.5, $lh: 30, $mfz: 15, $mls: 1.5, $mlh: 60, $sfz: 15, $sls: 1.5, $slh: 30);
+  }
+}
+
 /*====================================================================================
 text
 ====================================================================================*/
@@ -440,10 +463,6 @@ text
   &-divide {
     margin: 0 10px;
   }
-}
-.txt_sm {
-}
-.txt_xsm {
 }
 
 .footer-txt {
