@@ -28,12 +28,12 @@
       </ul>
     </div>
     <div class="footer-wrapper__right-box">
-      <a href="" class="btn-round grayblue">お問い合わせ</a>
+      <a href="<?php echo get_page_link(2126); ?>" class="btn-round grayblue">お問い合わせ</a>
       <a href="" class="btn-round darkblue">採用サイトへ</a>
     </div>
   </div>
   <p class="copyright">
-    &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
+    &copy; <?php echo date('Y'); ?><?php bloginfo('name'); ?>. All rights reserved.
   </p>
 </footer><!-- #colophon -->
 </div><!-- #page -->

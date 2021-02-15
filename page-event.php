@@ -19,24 +19,7 @@ get_header();
 <main id="primary" class="site-main event-page">
 
   <!-- main visual -->
-  <div class="page-top">
-    <div class="ttl-box">
-      <h1 class="page-ttl">お知らせ一覧<br><span>news</span></h1>
-    </div>
-    <div class="main-visual">
-      <div class="main-visual__call sp-none">
-        <a class="call-btn" href="tel:00000000000"></a><!-- 電話へのリンクをbox全体に広げる-->
-        <p class="main-visual-call-number">000-000-0000</p>
-        <p class="main-visual-txt">受付時間: 平日:9:00~17:00</p>
-      </div>
-      <div class="main-visual__links sp-none">
-        <a class="facebook" href=""><img class="mv-facebook"
-            src="<?php echo bloginfo('template_url'); ?>/images/facebook_blue.png" alt=""></a>
-        <a class="instagram" href=""><img class="mv-instagram"
-            src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
-      </div>
-    </div>
-  </div>
+  <?php get_template_part('/template-parts/content', 'lower-mainvisual'); ?>
 
   <!-- lead section -->
   <div class="lead-section">
@@ -56,12 +39,12 @@ get_header();
         <?php
 
         $wp_query = new WP_Query();
+        $page_limit = get_option('posts_per_page');
 
         if (empty($_REQUEST['id'])) {
           $my_posts = array(
             'post_type' => 'post',
             'post__not_in' => get_option('sticky_posts'),
-            'posts_per_page' => '6',
             'paged' => $paged,
           );
         } else {
@@ -69,7 +52,6 @@ get_header();
           $my_posts = array(
             'post_type' => 'post',
             'post__not_in' => get_option('sticky_posts'),
-            'posts_per_page' => '6',
             'paged' => $paged,
             'cat' => $id
           );
@@ -118,101 +100,26 @@ get_header();
         wp_reset_postdata(); ?>
       </ul>
 
+      <!-- pagenation -->
       <?php
-      if (function_exists('pagenation')) {
-        pagenation($my_posts);
-      } ?>
+      if (function_exists('mr_the_archive_pager')) mr_the_archive_pager($wp_query);
+      ?>
 
     </div>
+    <!-- /event-section__contents -->
+
 
     <!-- event-section__side -->
     <div class="event-section__side">
-
-      <!-- Category -->
-      <div class="news-side-link">
-        <p class="news-side-link__ttl">カテゴリー</p>
-        <ul class="news-side-link__list">
-          <li class="news-side-link__item active" onclick="location.href='<?php echo get_page_link(18); ?>'">全て</li>
-          <li class="news-side-link__item" onclick="location.href='<?php echo get_page_link(18); ?>?id=2'">ブログ</li>
-          <li class="news-side-link__item" onclick="location.href='<?php echo get_page_link(18); ?>?id=3'">お知らせ</li>
-        </ul>
-      </div>
-      <!-- Recent Article -->
-      <div class="news-side-link pc">
-        <p class="news-side-link__ttl">最新の記事</p>
-        <ul class="news-side-link__list">
-
-          <?php
-
-          $wp_query = new WP_Query();
-          $my_posts = array(
-            'post_type' => 'post',
-            'post__not_in' => get_option('sticky_posts'),
-            'posts_per_page' => '2',
-          );
-          $wp_query->query($my_posts);
-          if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
-              // タイトル
-              $title = wp_trim_words(get_the_title(), 13, '...');
-
-              //パーマリンク
-              $link = get_the_permalink()
-
-          ?>
-
-          <li class="news-side-link__item" onclick="location.href='<?php echo $link; ?>'"><?php echo $title; ?></li>
-
-
-          <?php endwhile;
-          endif;
-          wp_reset_postdata(); ?>
-
-        </ul>
-      </div>
-
-      <!-- Archives -->
-      <div class="news-side-link pc">
-        <p class="news-side-link__ttl">アーカイブ</p>
-        <ul class="news-side-link__list archives">
-          <?php
-          $my_posts_archives = array(
-            'post_type' => 'post',
-            'limit' => '3',
-            'show_post_count' => true,
-            'type' => 'yearly'
-          );
-          wp_get_archives($my_posts_archives);
-          ?>
-        </ul>
-      </div>
-
-      <!-- sns link -->
-      <div class="sns-link">
-        <a href=""><i class="fab fa-facebook fa-2x"></i></a>
-        <a href=""><i class="fab fa-instagram fa-2x"></i></a>
-      </div>
-
-    </div><!-- /event-section__side -->
+      <?php get_sidebar(); ?>
+    </div>
+    <!-- /event-section__side -->
 
   </div><!-- /event section -->
 
   <!-- cta -->
-  <div class="cta-section">
-    <div class="cta-section__box">
-      <div class="ttl2">
-        <h2>求人情報</h2>
-      </div>
-      <p class="cta-txt">リツワ株式会社の「求人情報」ページです。<br> スタッフインタビューや代表インタビューをはじめ、仕事内容や福利厚生などを掲載しています。</p>
-      <a href=""></a>
-    </div>
-    <div class="cta-section__box">
-      <div class="ttl2 contact">
-        <h2>お問い合わせ</h2>
-      </div>
-      <p class="cta-txt">リツワのサービスや事業所に関するお問い合わせはこちらをご覧ください。</p>
-      <a href=""></a>
-    </div>
-  </div>
+  <?php get_template_part('/template-parts/content', 'cta'); ?>
+
 </main><!-- #main -->
 
 <?php

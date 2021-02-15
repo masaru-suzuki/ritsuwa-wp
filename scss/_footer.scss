@@ -80,6 +80,9 @@ footer {
         @include mq-down {
           padding-bottom: 12px;
         }
+        a {
+          transition: 0.3s;
+        }
         &::before {
           position: absolute;
           font-size: 15px;
@@ -102,6 +105,10 @@ footer {
           &::before {
             color: rgba($color: $black, $alpha: 0.5);
             right: 20px;
+          }
+          a {
+            color: rgba($color: $black, $alpha: 0.5);
+            transition: 0.3s;
           }
         }
       }

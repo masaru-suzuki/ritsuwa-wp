@@ -6,17 +6,7 @@ const breakpoint = 768;
 const sp = 400;
 const md = 768;
 
-/*================================================================
-スマホを横にした時にリロードする
-================================================================*/
-window.addEventListener("orientationchange", () => location.reload());
-console.log('front')
 
-
-window.addEventListener('click', () => {
-  alert('aaa');
-  console.log('aaa');
-})
 /*================================================================
 スムーススクロール
 ================================================================*/
@@ -105,6 +95,7 @@ const smoothScroll = smoothScrollTrigger => {
 }
 
 
+
 /*================================================================
   hamburger のトグルアクション
 ================================================================ */
@@ -121,13 +112,13 @@ hamburger.addEventListener('click', () => {
 if (hamburgerToggle === false) {
     hamburgerToggle = true;
       hamburger.classList.add('active');
-      logo.classList.add('active');
+      // logo.classList.add('active'); /*こだわりページの時に消さなければならないのを制御する必要あり */
       headerNav.classList.add('active');
       globalMenuSp.classList.add('active');
 } else {
   hamburger.classList.remove('active');
   globalMenuSp.classList.remove('active');
-  logo.classList.remove('active');
+  // logo.classList.remove('active');
   headerNav.classList.remove('active');
   hamburgerToggle = false;
   }
@@ -148,9 +139,8 @@ if (hamburgerToggle === false) {
 //   origin: "bottom"
 // });
 
-/*================================================================
-functionの実行
-================================================================*/
+
+
 
 window.addEventListener('DOMContentLoaded', () => {
 

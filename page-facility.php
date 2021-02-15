@@ -19,24 +19,7 @@ get_header();
 <main class="facility-page">
 
   <!-- main visual -->
-  <div class="page-top">
-    <div class="ttl-box">
-      <h1 class="page-ttl">施設一覧<br><span>facility</span></h1>
-    </div>
-    <div class="main-visual">
-      <div class="main-visual__call sp-none">
-        <a class="call-btn" href="tel:00000000000"></a><!-- 電話へのリンクをbox全体に広げる-->
-        <p class="main-visual-call-number">000-000-0000</p>
-        <p class="main-visual-txt">受付時間: 平日:9:00~17:00</p>
-      </div>
-      <div class="main-visual__links sp-none">
-        <a class="facebook" href=""><img class="mv-facebook"
-            src="<?php echo bloginfo('template_url'); ?>/images/facebook_blue.png" alt=""></a>
-        <a class="instagram" href=""><img class="mv-instagram"
-            src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
-      </div>
-    </div>
-  </div>
+  <?php get_template_part('/template-parts/content', 'lower-mainvisual'); ?>
 
   <!-- lead section -->
   <div class="lead-section">

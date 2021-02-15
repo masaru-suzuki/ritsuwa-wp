@@ -27,10 +27,7 @@ get_header();
       <p class="main-visual-call-number">000-000-0000</p>
       <p class="main-visual-txt">受付時間: 平日:9:00~17:00</p>
     </div>
-    <div class="main-visual__links sp-none">
-      <a class="facebook" href=""><img class="mv-facebook" src="<?php echo bloginfo('template_url'); ?>/images/facebook_blue.png" alt=""></a>
-      <a class="instagram" href=""><img class="mv-instagram" src="<?php echo bloginfo('template_url'); ?>/images/instagram_blue.png" alt=""></a>
-    </div>
+    <div class="sns-link main-visual__links sp-none"><i class="fab fa-facebook fa-2x"></i><i class="fab fa-instagram fa-2x"></i></div>
     <div class="main-visual__news sp-none">
       <!-- 最新の投稿記事の取得 -->
       <?php

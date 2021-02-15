@@ -2,6 +2,15 @@
   @include wf;
   background-color: rgba($color: $whiteblue, $alpha: 0.2);
   padding: 0 64px 64px;
+  @include mq-down {
+    padding: 0 32px 48px;
+  }
+  @include mq-down {
+    padding: 0 16px 32px;
+  }
+  @include mq-down(sm) {
+    padding: 0 0 32px;
+  }
   .voice-box {
     max-width: 1240px;
     width: 100%;
@@ -20,6 +29,10 @@
         max-width: 600px;
         margin: 0 auto 32px;
       }
+      @include mq-down(sm) {
+        margin: 0 auto 32px;
+      }
+
       img {
         border-radius: 10px;
         @include mq-down {
@@ -50,7 +63,7 @@
         content: "";
         width: 360px;
         height: 200px;
-        background-image: url(images/voice-kakko.png);
+        background-image: url(/assets/images/voice-kakko.png);
         background-size: contain;
         background-repeat: no-repeat;
         @include mq-down {
@@ -65,7 +78,7 @@
         width: 360px;
         height: 200px;
         transform: rotate(180deg);
-        background-image: url(images/voice-kakko.png);
+        background-image: url(/assets/images/voice-kakko.png);
         background-size: contain;
         background-repeat: no-repeat;
         @include mq-down {
@@ -118,10 +131,10 @@ servive-contents-section
     margin: 0 8px 56px;
     @include mq-down {
       width: 320px;
-      margin-bottom: 16px;
+      margin-bottom: 32px;
     }
     @include mq-down(sm) {
-      margin: 0 8px;
+      margin: 0 8px 24px;
     }
 
     .card-img {
@@ -142,9 +155,12 @@ servive-contents-section
       }
     }
     .service-card-txt {
-      padding: 20px 48px;
+      padding: 20px 0;
       @include mq-down {
-        padding: 20px 24px;
+        padding: 20px 0;
+      }
+      @include mq-down(sm) {
+        padding: 20px 0;
       }
     }
   }

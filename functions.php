@@ -8,6 +8,117 @@
  * @package ritsuwa
  */
 
+
+
+/**
+ * WP-SCSS：ページをロードするたびにscssファイルを強制的にコンパイル.
+ */
+define('WP_SCSS_ALWAYS_RECOMPILE', true);
+
+
+/**
+ * JSファイルを読み込ませる
+ * バージョン指定なし
+ */
+function load_scripts()
+{
+  //共通のjsファイルを読み込む
+  wp_enqueue_script('theme-common', get_template_directory_uri() . '/js/common.js', array(), '20200215', true);
+
+  //固定ページごとにjsを個別に読み込む
+  if ($pagename = get_query_var('pagename')) {
+    if (file_exists(get_stylesheet_directory() . '/js/' . $pagename . '.js')) {
+      //jqueryの後に読み込む
+      wp_enqueue_script($pagename, get_stylesheet_directory_uri() . '/js/' . $pagename . '.js', array('jquery'), null, true);
+    }
+  }
+}
+add_action('wp_enqueue_scripts', 'load_scripts');
+
+
+/**
+ * ページネーション
+ */
+
+function mr_the_archive_pager($query)
+{
+  /*
+  $query => この関数を利用するインスタンス化したクエリー
+  */
+
+  //page設定
+  $paged = get_query_var('paged');
+  if (empty($paged) || !is_numeric($paged)) {
+    $paged = 1;
+  }
+  $page_limit = get_option('posts_per_page');
+  $prev = $paged - 1;
+  $next = $paged + 1;
+  $post_count = $query->found_posts; //全体記事数
+  $pages = ceil($post_count / $page_limit); //全体のページ数
+
+  //投稿数が最大表示件数を上回る場合のみページネーション表示
+  if ($post_count > $page_limit) {
+    //リンク設定
+    $link_first = get_pagenum_link('0');
+    $link_prev = get_pagenum_link($prev);
+    $link_next = get_pagenum_link($next);
+    $link_last = get_pagenum_link(strval($pages));
+
+    //link_btn
+    $link_first_btn = "<a href='" . $link_first . "' class=\"page-nation-link return-first\">最初</a>";
+    $link_prev_btn = "<a href='" . $link_prev . "' class=\"page-nation-link prev\">前へ</a>";
+    $link_next_btn = "<a href='" . $link_next . "' class=\"page-nation-link move-next\">次へ</a>";
+    $link_last_btn = "<a href='" . $link_last . "' class=\"page-nation-link move-last\">最後</a>";
+
+
+
+    //pagenatino の利用
+    echo "<div class=\"page-nation01\">";
+    // return-area
+    echo "<div class=\"return-area\">";
+    if ($paged == 1) {
+      //1ページ目の時は【最初】【前へ】を表示しない
+      // echo $link_first_btn_empty;
+      // echo $link_prev_btn_empty;
+    } else if ($paged == 2) {
+      //2ページ目の時は【最初】を表示せず、【前へ】のみ表示
+      // echo $link_first_btn_empty;
+      echo $link_prev_btn;
+    } else if ($paged > 2) {
+      //3ページ目以降【最初】【前へ】を表示
+      echo $link_first_btn;
+      echo $link_prev_btn;
+    } else {
+      echo '正しくページ番号を入力してください';
+      exit();
+    }
+    echo "</div>";
+
+    //move-area
+    echo "<div class=\"move-area\">";
+    if ($paged - $pages <  -1) {
+      //最後から3ページ目以前【最後】【次へ】を表示
+      echo $link_next_btn;
+      echo $link_last_btn;
+    } else if ($paged - $pages == -1) {
+      //最後から1つ前ページの時は【最後】を表示せず、【次へ】のみ表示
+      echo $link_next_btn;
+      // echo $link_last_btn_empty;
+    } else if ($paged - $pages == 0) {
+      //最後ページ目の時は【最後】【次へ】を表示しない
+    } else {
+      echo '正しくページ番号を入力してください';
+    }
+
+    echo "</div>";
+    echo "</div>\n";
+  }
+}
+
+
+//元々のfile
+
 if (!defined('_S_VERSION')) {
   // Replace the version number of the theme on each release.
   define('_S_VERSION', '1.0.0');
@@ -106,6 +217,25 @@ if (!function_exists('ritsuwa_setup')) :
 endif;
 add_action('after_setup_theme', 'ritsuwa_setup');
 
+
+
+
+/**
+ * Enqueue scripts and styles.
+ */
+// function ritsuwa_scripts()
+// {
+//   wp_enqueue_style('ritsuwa-style', get_stylesheet_uri(), array(), _S_VERSION);
+//   wp_style_add_data('ritsuwa-style', 'rtl', 'replace');
+
+//   // wp_enqueue_script('ritsuwa-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+//   wp_enqueue_script('common', get_template_directory_uri() . '/js/common.js', array(), _S_VERSION, true);
+
+//   if (is_singular() && comments_open() && get_option('thread_comments')) {
+//     wp_enqueue_script('comment-reply');
+//   }
+// }
+// add_action('wp_enqueue_scripts', 'ritsuwa_scripts');
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -113,202 +243,57 @@ add_action('after_setup_theme', 'ritsuwa_setup');
  *
  * @global int $content_width
  */
-function ritsuwa_content_width()
-{
-  $GLOBALS['content_width'] = apply_filters('ritsuwa_content_width', 640);
-}
-add_action('after_setup_theme', 'ritsuwa_content_width', 0);
+// function ritsuwa_content_width()
+// {
+//   $GLOBALS['content_width'] = apply_filters('ritsuwa_content_width', 640);
+// }
+// add_action('after_setup_theme', 'ritsuwa_content_width', 0);
+
+
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function ritsuwa_widgets_init()
-{
-  register_sidebar(
-    array(
-      'name'          => esc_html__('Sidebar', 'ritsuwa'),
-      'id'            => 'sidebar-1',
-      'description'   => esc_html__('Add widgets here.', 'ritsuwa'),
-      'before_widget' => '<section id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</section>',
-      'before_title'  => '<h2 class="widget-title">',
-      'after_title'   => '</h2>',
-    )
-  );
-}
-add_action('widgets_init', 'ritsuwa_widgets_init');
-
-/**
- * Enqueue scripts and styles.
- */
-function ritsuwa_scripts()
-{
-  wp_enqueue_style('ritsuwa-style', get_stylesheet_uri(), array(), _S_VERSION);
-  wp_style_add_data('ritsuwa-style', 'rtl', 'replace');
-
-  wp_enqueue_script('ritsuwa-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
-
-  if (is_singular() && comments_open() && get_option('thread_comments')) {
-    wp_enqueue_script('comment-reply');
-  }
-}
-add_action('wp_enqueue_scripts', 'ritsuwa_scripts');
-
+// function ritsuwa_widgets_init()
+// {
+//   register_sidebar(
+//     array(
+//       'name'          => esc_html__('Sidebar', 'ritsuwa'),
+//       'id'            => 'sidebar-1',
+//       'description'   => esc_html__('Add widgets here.', 'ritsuwa'),
+//       'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//       'after_widget'  => '</section>',
+//       'before_title'  => '<h2 class="widget-title">',
+//       'after_title'   => '</h2>',
+//     )
+//   );
+// }
+// add_action('widgets_init', 'ritsuwa_widgets_init');
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+// require get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php';
+// require get_template_directory() . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
  */
-if (defined('JETPACK__VERSION')) {
-  require get_template_directory() . '/inc/jetpack.php';
-}
-
-/**
- * WP-SCSS：ページをロードするたびにscssファイルを強制的にコンパイル.
- */
-define('WP_SCSS_ALWAYS_RECOMPILE', true);
-/* ================================================================================ */
-
-
-
-/**
- * JSファイルを読み込ませる
- * jqueryの後に読み込み
- * バージョン指定なし
- * body終了タグ直前に読み込み
- */
-function load_scripts()
-{
-  if ($pagename = get_query_var('pagename')) {
-    if (file_exists(get_stylesheet_directory() . '/js/' . $pagename . '.js')) {
-      wp_enqueue_script($pagename, get_stylesheet_directory_uri() . '/js/' . $pagename . '.js', array('jquery'), null, true);
-    }
-  }
-}
-add_action('wp_enqueue_scripts', 'load_scripts');
-
-/**
- * アイキャッチ画像を設定していない場合、投稿ページの1枚目の画像を表示する
- */
-function catch_first_image()
-{
-  global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img = $matches[1][0];
-
-  if (empty($first_img)) { //Defines a default image
-    $first_img = "/images/default.jpg";
-  }
-  return $first_img;
-}
-
-
-/**
- * ページネーション
- */
-
-function pagenation($arg, $pages = '', $range = 2)
-{
-
-  global $paged;
-
-  if (empty($paged)) $paged = 1;
-  if ($pages == '') {
-    global $wp_query;
-    $wp_query->query($arg);
-    $pages = $wp_query->max_num_pages;
-    if (!$pages) {
-      $pages = 1;
-    }
-  }
-  if (1 != $pages) {
-
-    echo "<div class=\"page-nation01\">";
-
-    /*
-    *return-areaここから
-     */
-    echo "<div class=\"return-area\">";
-    echo $paged;
-    echo $wp_query->max_num_pages;
-
-
-    if (is_numeric($paged) && $paged == 1) {
-      //1ページ目の時は【最初】【前へ】を表示しない
-      echo "<div class=\"page-nation-link return-first empty\"> </div>";
-      echo "<div class=\"page-nation-link prev empty\"> </div>";
-    } else if (is_numeric($paged) && $paged == 2) {
-      //2ページ目の時は【最初】を表示せず、【前へ】のみ表示
-      echo "<div class=\"page-nation-link return-first empty\"> </div>";
-      echo "<a href='" . get_pagenum_link($paged - 1) . "' class=\"page-nation-link prev\">前へ</a>";
-    } else if (is_numeric($paged) && $paged > 2) {
-      //3ページ目以降【最初】【前へ】を表示
-      echo "<a href='" . get_pagenum_link(1) . "' class=\"page-nation-link return-first\">最初</a>";
-      echo "<a href='" . get_pagenum_link($paged - 1) . "' class=\"page-nation-link prev\">前へ</a>";
-    } else {
-      echo '正しくページ番号を入力してください';
-      exit();
-    }
-
-    echo "</div>";
-    /**
-     * /return-areaここまで
-     *  */
-
-    /*
-    * move-areaここから
-     */
-    echo "<div class=\"move-area\">";
-    // echo $paged;
-    // echo $pages;
-    if (is_numeric($paged) && $paged - $pages <  -1) {
-      //最後から3ページ目以前【最後】【次へ】を表示
-      echo "<a href='" . get_pagenum_link($paged + 1) . "' class=\"page-nation-link move-next\">次へ</a>";
-      echo "<a href='" . get_pagenum_link($pages) . "' class=\"page-nation-link move-last\">最後</a>";
-    } else if (is_numeric($paged) && $paged - $pages == -1) {
-      //最後から1つ前ページの時は【最後】を表示せず、【次へ】のみ表示
-      echo "<div class=\"page-nation-link move-last empty\"></div>";
-      echo "<a href='" . get_pagenum_link($paged + 1) . "' class=\"page-nation-link move-next\">次へ</a>";
-    } else if (is_numeric($paged) && $paged - $pages == 0) {
-      //最後ページ目の時は【最後】【次へ】を表示しない
-      echo "<div class=\"page-nation-link move-next empty\"></div>";
-      echo "<div class=\"page-nation-link move-last empty\"></div>";
-    } else {
-      echo '正しくページ番号を入力してください';
-    }
-
-    echo "</div>";
-    /**
-     * /return-areaここまで
-     *  */
-
-
-    echo "</div>\n";
-  } else {
-    echo '1ページのみ';
-    echo "<div class=\"m-pagenation__result\">" . $paged . "/" . $pages . "</div>";
-  }
-}
+// if (defined('JETPACK__VERSION')) {
+  // require get_template_directory() . '/inc/jetpack.php';
+// }

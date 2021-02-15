@@ -27,10 +27,11 @@ img {
 
 .sns-link {
   .fab {
-    opacity: 0.7;
+    cursor: pointer;
+    color: $whiteblue;
     transition: 0.3s;
     &:hover {
-      opacity: 1;
+      color: $blue;
       transition: 0.3s;
     }
   }

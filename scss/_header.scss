@@ -88,11 +88,21 @@
         background-color: $grayblue;
         width: 172px;
         height: 90px;
+        transition: 0.3s;
+        &:hover {
+          background-color: $grayblue-hover;
+          transition: 0.3s;
+        }
       }
       .bg-darkblue {
         background-color: $darkblue;
         width: 172px;
         height: 90px;
+        transition: 0.3s;
+        &:hover {
+          background-color: $darkblue-hover;
+          transition: 0.3s;
+        }
       }
     }
   }

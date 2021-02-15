@@ -31,7 +31,6 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
   <div id="page" class="site">
-
     <header id="masthead" class="site-header">
       <img class="site-header__logo" src="<?php echo bloginfo('template_url'); ?>/images/logo.png" alt="">
       <div class="site-header__nav pc">
@@ -41,7 +40,7 @@
           <li class="nav__item" onclick="location.href='<?php echo get_page_link(16); ?>'">施設</li>
           <li class="nav__item" onclick="location.href='<?php echo get_page_link(18); ?>'">お知らせ</li>
           <li class="nav__item--bg">
-            <a class="bg-blue">
+            <a href="<?php echo get_page_link(2126); ?>" class="bg-blue">
               <i class="far fa-address-card"></i>
               <p>採用情報</p>
             </a>
@@ -60,12 +59,12 @@
 
       <nav class="globalMenuSp pc_none">
         <ul>
-          <li class="globalMenuLi"><a href="#section1">ホーム</a></li>
-          <li class="globalMenuLi"><a href="#section2">サービス</a></li>
-          <li class="globalMenuLi"><a href="#section3">施設</a></li>
-          <li class="globalMenuLi"><a href="#section4">お知らせ</a></li>
-          <li class="globalMenuLi"><a href="#section5">採用情報</a></li>
-          <li class="globalMenuLi"><a href="#section6">お問い合わせ</a></li>
+          <li class="globalMenuLi"><a href="<?php echo home_url('/'); ?>">ホーム</a></li>
+          <li class="globalMenuLi"><a href="<?php echo get_page_link(14); ?>">サービス</a></li>
+          <li class="globalMenuLi"><a href="<?php echo get_page_link(16); ?>">施設</a></li>
+          <li class="globalMenuLi"><a href="<?php echo get_page_link(18); ?>">お知らせ</a></li>
+          <li class="globalMenuLi"><a href="">採用情報</a></li>
+          <li class="globalMenuLi"><a href="<?php echo get_page_link(2126); ?>">お問い合わせ</a></li>
         </ul>
       </nav>
 
