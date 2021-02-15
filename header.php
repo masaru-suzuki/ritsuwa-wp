@@ -19,8 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?php bloginfo('name'); ?> <?php if (is_single()) { ?> &raquo; Blog Archive <?php } ?> <?php wp_title(); ?></title>
   <link rel="profile" href="https://gmpg.org/xfn/11">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <!-- External files -->
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
   <!-- <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico"> -->
@@ -28,7 +27,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body ontouchstart="" <?php body_class(); ?>>
   <?php wp_body_open(); ?>
   <div id="page" class="site">
     <header id="masthead" class="site-header">

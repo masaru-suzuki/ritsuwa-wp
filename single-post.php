@@ -42,29 +42,9 @@ get_header();
 
   ?>
 
+
   <!-- breadcrumb -->
-  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="ホームのURL">
-        <span itemprop="name">ホーム</span>
-      </a>
-      <meta itemprop="position" content="1" />
-    </li>
-
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="カテゴリー1のURL">
-        <span itemprop="name">お知らせ一覧</span>
-      </a>
-      <meta itemprop="position" content="2" />
-    </li>
-
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="カテゴリー2のURL">
-        <span itemprop="name">ブログ</span>
-      </a>
-      <meta itemprop="position" content="3" />
-    </li>
-  </ol>
+  <?php get_template_part('/template-parts/content', 'breadcrumb'); ?>
 
   <!-- article section -->
   <div class="article-section">

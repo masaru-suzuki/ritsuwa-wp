@@ -32,6 +32,10 @@ function load_scripts()
       wp_enqueue_script($pagename, get_stylesheet_directory_uri() . '/js/' . $pagename . '.js', array('jquery'), null, true);
     }
   }
+  //archive.phpでjs読み込み
+  if (is_archive()) {
+    wp_enqueue_script('archive-js', get_template_directory_uri() . '/js/event.js', array(), '20200215', true);
+  }
 }
 add_action('wp_enqueue_scripts', 'load_scripts');
 
