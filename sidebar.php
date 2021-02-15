@@ -74,6 +74,6 @@
 
 <!-- sns link -->
 <div class="sns-link">
-  <a href=""><i class="fab fa-facebook fa-2x"></i></a>
-  <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+  <a href="<?php echo get_page_link(2126); ?>"><i class="fab fa-facebook fa-2x"></i></a>
+  <a href="<?php echo get_page_link(2126); ?>"><i class="fab fa-instagram fa-2x"></i></a>
 </div>

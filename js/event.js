@@ -1,11 +1,4 @@
 'use strict';
-
-const startWindowSize = window.innerWidth;
-let windowSize = window.innerWidth;
-const breakpoint = 768;
-const sp = 400;
-const md = 768;
-
 /*================================================================
 スマホを横にした時にリロードする
 ================================================================*/
@@ -21,19 +14,6 @@ var Ease = {
 }
 // アニメーションの Duration の設定
 var duration = 500;
-
-// 移動さきの要素の上の余白
-//headerの余白を考えて少し上にずらす必要があるため。
-//facilityページでのみ
-
-let targetPositionPadding = 0;
-if (windowSize > md) {
-  targetPositionPadding = 0;
-} else if (windowSize <= sp) {
-  targetPositionPadding = 64;
-} else {
-  targetPositionPadding = 80;
-}
 
 const smoothScroll = smoothScrollTrigger => {
    // トリガーをクリックした時に実行

@@ -18,7 +18,8 @@
       <img src="<?php echo bloginfo('template_url'); ?>/images/logo.png" alt="">
       <p class="footer-txt">株式会社<span class="space"></span>リツワ</p>
       <p class="footer-txt">〒989-5301<span class="space"></span><br class="pc-none">栗原市栗町岩ヶ崎相木沢66番地</p>
-      <div class="sns-link"><i class="fab fa-facebook fa-2x"></i><i class="fab fa-instagram fa-2x"></i></div>
+      <!-- sns link -->
+      <?php get_template_part('/template-parts/content', 'sns-link-box'); ?>
     </div>
     <div class="footer-wrapper__center-box">
       <ul>

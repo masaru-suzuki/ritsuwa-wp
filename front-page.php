@@ -27,7 +27,8 @@ get_header();
       <p class="main-visual-call-number">000-000-0000</p>
       <p class="main-visual-txt">受付時間: 平日:9:00~17:00</p>
     </div>
-    <div class="sns-link main-visual__links sp-none"><i class="fab fa-facebook fa-2x"></i><i class="fab fa-instagram fa-2x"></i></div>
+    <!-- sns link box -->
+    <?php get_template_part('/template-parts/content', 'sns-link-box'); ?>
     <div class="main-visual__news sp-none">
       <!-- 最新の投稿記事の取得 -->
       <?php
@@ -38,16 +39,16 @@ get_header();
       foreach ($posts as $post) : // ループの開始
         setup_postdata($post); // 記事データの取得
       ?>
-        <a class="news-link" href="<?php the_permalink(); ?>"></a><!-- newsへのリンクをbox全体に広げる-->
-        <p class="main-visual__news--header main-visual-txt">NEWS</p>
-        <dl class="main-visual__news--articlw">
-          <dt class="news-ymd main-visual-txt"><?php echo get_the_date('Y-n-j'); ?></dt>
-          <dd class="news-ttl main-visual-txt"><?php the_title(); ?></dd>
+      <a class="news-link" href="<?php the_permalink(); ?>"></a><!-- newsへのリンクをbox全体に広げる-->
+      <p class="main-visual__news--header main-visual-txt">NEWS</p>
+      <dl class="main-visual__news--articlw">
+        <dt class="news-ymd main-visual-txt"><?php echo get_the_date('Y-n-j'); ?></dt>
+        <dd class="news-ttl main-visual-txt"><?php the_title(); ?></dd>
         <?php
       endforeach; // ループの終了
       wp_reset_postdata(); // 直前のクエリを復元する
         ?>
-        </dl>
+      </dl>
     </div>
   </div>
 
@@ -58,7 +59,8 @@ get_header();
     </div>
     <div class="service-section__txt-box">
       <div class="txt-box">
-        <h2 class="sct-ttl kakko"><span class="txt-whiteblue">生きがい</span><span class="sub-ttl1">を感じてもらいたい</span><span class="sub-ttl">それが私たちの願いです。</span></h2>
+        <h2
+          class="sct-ttl kakko"><span class="txt-whiteblue">生きがい</span><span class="sub-ttl1">を感じてもらいたい</span><span class="sub-ttl">それが私たちの願いです。</span></h2>
         <p>お元気になられてご自身の生きがいにつながる…そんなところでありたいと思っています。</p>
         <p>その為には、ご自身の家で過ごすような健やかな生活が必要だと考え、リツワで働く全員が、みなさまが楽しく健やかな暮らしを送れるように全力でサポートさせてもらっています。</p>
         <a href="<?php echo get_page_link(14); ?>" class="btn-round">サービス一覧</a>
@@ -128,11 +130,11 @@ get_header();
                 //施設名
                 $facility = get_the_author();
             ?>
-                <tr>
-                  <td class="table-txt ymd"><?php echo $date; ?></td>
-                  <td class="table-txt"><?php echo $title; ?></td>
-                  <td class="table-txt"><?php echo $content; ?></td>
-                </tr>
+            <tr>
+              <td class="table-txt ymd"><?php echo $date; ?></td>
+              <td class="table-txt"><?php echo $title; ?></td>
+              <td class="table-txt"><?php echo $content; ?></td>
+            </tr>
 
             <?php endwhile;
             endif;

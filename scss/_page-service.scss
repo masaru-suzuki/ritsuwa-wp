@@ -63,7 +63,7 @@
         content: "";
         width: 360px;
         height: 200px;
-        background-image: url(/assets/images/voice-kakko.png);
+        background-image: url(images/voice-kakko.png);
         background-size: contain;
         background-repeat: no-repeat;
         @include mq-down {
@@ -78,7 +78,7 @@
         width: 360px;
         height: 200px;
         transform: rotate(180deg);
-        background-image: url(/assets/images/voice-kakko.png);
+        background-image: url(images/voice-kakko.png);
         background-size: contain;
         background-repeat: no-repeat;
         @include mq-down {

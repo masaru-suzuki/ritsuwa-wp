@@ -1,11 +1,5 @@
 'use strict';
 
-const startWindowSize = window.innerWidth;
-let windowSize = window.innerWidth;
-const breakpoint = 768;
-const sp = 400;
-const md = 768;
-
 /*================================================================
 スマホを横にした時にリロードする
 ================================================================*/
