@@ -5,6 +5,8 @@ $btn_width: 288px;
 $btn_heght: 64px;
 $sp_btn_width: 196px;
 $sp_btn_heght: 42px;
+$sp_confirm_btn_width: 148px;
+$sp_confirm_btn_height: 42px;
 
 .btn-round {
   text-align: center;
@@ -32,8 +34,24 @@ $sp_btn_heght: 42px;
   }
   @include mq-down(sm) {
     margin: 0 auto;
+    &.orange,
+    &.clear {
+      width: $sp_confirm_btn_width;
+      height: $sp_confirm_btn_height;
+    }
+    &.wide {
+      width: $sp_btn_width;
+      height: $sp_btn_heght;
+    }
   }
-
+  &.orange {
+    background-color: $orange;
+  }
+  &.clear {
+    background-color: unset;
+    color: $bgcolor;
+    border: 1px solid $bgcolor;
+  }
   &.grayblue {
     background-color: $grayblue;
   }
@@ -51,6 +69,11 @@ $sp_btn_heght: 42px;
   &:hover {
     background-color: $hover_bgcolor;
     transition: 0.3s;
+    &.clear {
+      background-color: $bgcolor;
+      color: $txt_color;
+      border: 1px solid $bgcolor;
+    }
     &.darkblue,
     &.grayblue {
       background-color: $black;
@@ -64,5 +87,67 @@ $sp_btn_heght: 42px;
   &:active {
     transition: 0.3s;
     top: 2px;
+  }
+}
+
+/*btnがinput要素だった場合の処理*/
+.input-btn {
+  position: relative;
+  &::before {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054";
+    z-index: 1;
+  }
+  &.clear {
+    transition: 0.3s;
+    &::before {
+      transition: 0.3s;
+      color: $whiteblue;
+    }
+  }
+  &.orange {
+    transition: 0.3s;
+    &::before {
+      transition: 0.3s;
+      color: $white;
+    }
+  }
+  &:hover {
+    transition: 0.3s;
+    &.clear {
+      transition: 0.3s;
+      &::before {
+        transition: 0.3s;
+        color: $white;
+      }
+    }
+
+    &::before {
+      transition: 0.3s;
+      right: 5%;
+    }
+  }
+
+  //戻るボタンの設定
+  &.left-arrow {
+    &::before {
+      position: absolute;
+      left: 15%;
+      width: 10px;
+      transition: 0.3s;
+      transform: translateY(-50%) rotateY(180deg);
+    }
+    &:hover {
+      &::before {
+        transition: 0.3s;
+        left: 10%;
+      }
+    }
   }
 }
