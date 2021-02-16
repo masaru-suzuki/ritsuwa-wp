@@ -345,29 +345,78 @@ title
   );
   font-weight: bold;
 }
-
-/*投稿ページのhタグスタイリング*/
-.article__contents {
-  h1 {
-    @include cmn_txt($fz: 40, $ls: 1.5, $lh: 80, $mfz: 30, $mls: 1.5, $mlh: 60, $sfz: 27, $sls: 1.5, $slh: 54);
+.contact-page-ttl {
+  @include cmn_txt(
+    $ff: Tsukushi A Round Gothic,
+    $fz: 40,
+    $ls: 6,
+    $lh: 114,
+    $mfz: 30,
+    $mls: 6,
+    $mlh: 80,
+    $sfz: 24,
+    $sls: 6,
+    $slh: 80
+  );
+  color: $white;
+  font-weight: bold;
+  text-align: center;
+  margin: 32px 0 72px;
+  @include mq-down {
+    margin: 132px 0 48px;
   }
-  h2 {
-    @include cmn_txt($fz: 35, $ls: 1.5, $lh: 70, $mfz: 27, $mls: 1.5, $mlh: 54, $sfz: 25, $sls: 1.5, $slh: 50);
-  }
-  h3 {
-    @include cmn_txt($fz: 30, $ls: 1.5, $lh: 60, $mfz: 24, $mls: 1.5, $mlh: 48, $sfz: 23, $sls: 1.5, $slh: 46);
-  }
-  h4 {
-    @include cmn_txt($fz: 25, $ls: 1.5, $lh: 50, $mfz: 21, $mls: 1.5, $mlh: 42, $sfz: 21, $sls: 1.5, $slh: 42);
-  }
-  h5 {
-    @include cmn_txt($fz: 20, $ls: 1.5, $lh: 40, $mfz: 18, $mls: 1.5, $mlh: 36, $sfz: 18, $sls: 1.5, $slh: 36);
-  }
-  h6 {
-    @include cmn_txt($fz: 15, $ls: 1.5, $lh: 30, $mfz: 15, $mls: 1.5, $mlh: 60, $sfz: 15, $sls: 1.5, $slh: 30);
+  @include mq-down(sm) {
+    margin: 98px 0 40px;
   }
 }
-
+.contact-page-sct-ttl {
+  @include cmn_txt(
+    $ff: Tsukushi A Round Gothic,
+    $fz: 35,
+    $ls: 6,
+    $lh: 64,
+    $mfz: 24,
+    $mls: 4,
+    $mlh: 50,
+    $sfz: 24,
+    $sls: 3,
+    $slh: 50
+  );
+  border-bottom: 3px solid $blue;
+  color: $blue;
+  font-weight: bold;
+  margin-bottom: 72px;
+  @include mq-down {
+    padding-left: 16px;
+    margin-bottom: 48px;
+  }
+  @include mq-down(sm) {
+    margin-bottom: 32px;
+  }
+}
+.thanks-page-ttl {
+  @include cmn_txt(
+    $ff: Tsukushi A Round Gothic,
+    $fz: 35,
+    $ls: 6,
+    $lh: 64,
+    $mfz: 24,
+    $mls: 4,
+    $mlh: 50,
+    $sfz: 22,
+    $sls: 3,
+    $slh: 50
+  );
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 72px;
+  @include mq-down {
+    margin-bottom: 48px;
+  }
+  @include mq-down(sm) {
+    margin-bottom: 32px;
+  }
+}
 /*====================================================================================
 text
 ====================================================================================*/
@@ -441,9 +490,7 @@ text
     margin: 0 10px;
   }
 }
-
-//.news-side-link__itemでfontを管理したかった。何か方法はあるか調べる
-.news-side-link__list {
+.news-side-link__item {
   @include cmn_txt($fz: 14, $ls: 1.6, $lh: 50, $mfz: 12, $mls: 1.6, $mlh: 40, $sfz: 12, $sls: 1.6, $slh: 30);
 }
 .article-info {
@@ -465,12 +512,114 @@ text
   }
 }
 
+/*contact form*/
+
+.comment-box-txt {
+  @include cmn_txt(
+    $ff: Tsukushi A Round Gothic,
+    $fz: 18,
+    $ls: 3,
+    $lh: 18,
+    $mfz: 14,
+    $mls: 1.8,
+    $mlh: 14,
+    $sfz: 12,
+    $sls: 1.8,
+    $slh: 12
+  );
+  color: $white;
+  text-align: center;
+}
+.link-box__link {
+  @include cmn_txt(
+    $ff: Tsukushi A Round Gothic,
+    $fz: 30,
+    $ls: 6,
+    $lh: 30,
+    $mfz: 30,
+    $mls: 6,
+    $mlh: 14,
+    $sfz: 23,
+    $sls: 4,
+    $slh: 12
+  );
+  color: $blue;
+  font-weight: bold;
+  border-bottom: 3px solid $blue;
+  text-align: center;
+  padding-bottom: 6px;
+}
+.facility-box__link {
+  @include cmn_txt(
+    $ff: Tsukushi A Round Gothic,
+    $fz: 30,
+    $ls: 6,
+    $lh: 30,
+    $mfz: 20,
+    $mls: 6,
+    $mlh: 14,
+    $sfz: 18,
+    $sls: 4,
+    $slh: 12
+  );
+  color: $blue;
+  font-weight: bold;
+  border-bottom: 3px solid $blue;
+  text-align: center;
+  padding-bottom: 6px;
+}
+.tel-box-txt-box-txt {
+  @include cmn_txt(
+    $ff: Tsukushi A Round Gothic,
+    $fz: 20,
+    $ls: 6,
+    $lh: 40,
+    $mfz: 14,
+    $mls: 6,
+    $mlh: 28,
+    $sfz: 14,
+    $sls: 6,
+    $slh: 28
+  );
+  font-weight: bold;
+  text-align: center;
+}
+.link-box-txt-box-txt {
+  @include cmn_txt($fz: 15, $ls: 1, $lh: 30, $mfz: 12, $mls: 1, $mlh: 24, $sfz: 8, $sls: 0.8, $slh: 16);
+}
+.link-box-txt-box-subtxt {
+  @include cmn_txt($fz: 15, $ls: 1, $lh: 30, $mfz: 12, $mls: 1, $mlh: 24, $sfz: 8, $sls: 0.8, $slh: 16);
+  color: rgba($color: $black, $alpha: 0.6);
+}
+.num {
+  @include cmn_txt($fz: 14, $ls: 2, $lh: 40, $mfz: 12, $mls: 2, $mlh: 30, $sfz: 8, $sls: 2, $slh: 25);
+  color: $darkgray;
+  margin-left: 8px;
+}
+.flow-txt {
+  //lhはnumと揃える
+  @include cmn_txt($fz: 18, $ls: 5, $lh: 40, $mfz: 16, $mls: 5, $mlh: 30, $sfz: 14, $sls: 5, $slh: 25);
+  color: $darkgray;
+}
+.privacypolicy,
+.check-privacy-policy__link {
+  color: $darkgray;
+  border-bottom: 1px solid $darkgray;
+}
+.coution-box-txt-red {
+  color: $red;
+}
+.haveto {
+  color: $red;
+}
+.error {
+  @include cmn_txt($fz: 15, $ls: 1, $lh: 30, $mfz: 12, $mls: 1, $mlh: 24, $sfz: 8, $sls: 0.8, $slh: 16);
+  color: $red;
+}
+
+/*footer*/
 .footer-txt {
   @include cmn_txt($fz: 20, $ls: 2, $lh: 30, $mfz: 14, $mls: 2, $mlh: 14, $sfz: 12, $sls: 1.8, $slh: 12);
-  text-align: left;
-  @include mq-down {
-    vertical-align: bottom;
-  }
 }
 .copyright {
   @include cmn_txt($fz: 15, $ls: 1, $lh: 30, $mfz: 12, $mls: 1, $mlh: 24, $sfz: 8, $sls: 0.8, $slh: 16);
@@ -484,4 +633,7 @@ other
 ====================================================================================*/
 .txt-whiteblue {
   color: $whiteblue;
+}
+.tac {
+  text-align: center !important;
 }

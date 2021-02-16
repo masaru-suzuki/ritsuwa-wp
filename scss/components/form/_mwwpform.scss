@@ -90,5 +90,8 @@
   .btn-box {
     position: unset;
     margin: 0 auto;
+    .clear {
+      display: none;
+    }
   }
 }
