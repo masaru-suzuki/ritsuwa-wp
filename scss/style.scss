@@ -29,7 +29,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "page-service";
 @import "page-facility";
 @import "page-event";
-@import "page-single-post";
+@import "page-article";
+@import "page-contact";
 // @import "kodawari";
 // @import "mixin/font.scss";
 // @import "menu";
@@ -41,10 +42,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 // @import "components/btn/_footer.scss";
 // @import "components/btn/_contact.scss";
 @import "components/btn/btn_round";
+// @import "components/btn/btn_round_nobg";
 @import "components/btn/arrow-down";
 @import "components/btn/square";
 @import "components/icon/plus";
-@import "components/form/contactform_mwwpform";
+@import "components/form/mwwpform";
+@import "components/form/mwwpform-confirm";
+@import "components/form/mwwpform-finish";
 // @import "components/icon/tag";
 // @import "components/btn/_color_change";
 // @import "components/_contactform.scss";

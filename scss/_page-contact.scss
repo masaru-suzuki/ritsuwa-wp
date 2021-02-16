@@ -1,0 +1,267 @@
+.contact-page {
+}
+
+/*==================================================
+ tel-section
+==================================================*/
+.contact-page-ttl {
+  width: 100%;
+  background-color: $blue;
+}
+.page-contact-section {
+  max-width: 1280px;
+  width: 100%;
+  margin: 112px auto 80px;
+  @include mq-down {
+    margin: 0 auto 80px;
+  }
+}
+
+.comment-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  @include mq-down {
+    padding: 0 16px;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto 56px;
+  }
+  @include mq-down(sm) {
+    margin-bottom: 32px;
+  }
+  &__comment {
+    position: relative;
+    background: $whiteblue;
+    padding: 32px 48px;
+    border-radius: 5px;
+    @include mq-down {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    &::before {
+      top: 96%;
+      left: 50%;
+      border: solid transparent;
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-top-color: $whiteblue;
+      border-width: 18px;
+      margin-left: -18px;
+      @include mq-down {
+        top: 80%;
+      }
+    }
+  }
+}
+.tel-box {
+  width: 100%;
+  background-color: $whitegray;
+  padding: 32px;
+  margin-bottom: 56px;
+  &__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    @include mq-down {
+      flex-direction: column;
+    }
+  }
+  .txt-box {
+    max-width: 400px;
+    width: 100%;
+    @include mq-down {
+      margin: 0 auto;
+    }
+    .tel-box-txt-box-txt {
+      position: relative;
+      margin-top: 16px;
+      @include mq-down {
+        margin-bottom: 24px;
+      }
+      &::before {
+        position: absolute;
+        top: 22px;
+        left: -35px;
+        content: "";
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          70deg,
+          $whitegray,
+          $whitegray 49%,
+          $black 49%,
+          $black 52%,
+          $whitegray 52%,
+          $whitegray
+        );
+        @include mq-down {
+          top: 1px;
+          left: 15px;
+        }
+        @include mq-down(sm) {
+          top: 10px;
+          left: -35px;
+          content: "";
+          height: 40px;
+        }
+      }
+      &::after {
+        position: absolute;
+        top: 22px;
+        right: -30px;
+        content: "";
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          115deg,
+          $whitegray,
+          $whitegray 49%,
+          $black 49%,
+          $black 52%,
+          $whitegray 52%,
+          $whitegray
+        );
+        @include mq-down {
+          top: 1px;
+          right: 20px;
+        }
+        @include mq-down(sm) {
+          top: 10px;
+          right: -30px;
+          content: "";
+          height: 40px;
+        }
+      }
+    }
+  }
+  .link-box {
+    width: 100%;
+    max-width: 350px;
+    margin: unset;
+    padding: unset;
+    @include mq-down {
+      margin: 0 auto;
+      text-align: center;
+    }
+    &__link {
+      position: relative;
+      margin-bottom: 16px;
+      @include mq-down(sm) {
+        margin-left: 24px;
+      }
+      &::before {
+        position: absolute;
+        font-size: 25px;
+        left: -48px;
+        top: 2px;
+        transition: 0.3s;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        transform: rotateY(180deg) rotate(-10deg);
+        content: "\f095";
+        color: $blue;
+        @include mq-down {
+          top: 12px;
+          left: -45px;
+        }
+      }
+    }
+    &__txt-box {
+      margin-top: 16px;
+      @include mq-down {
+        text-align: left;
+        padding-left: 36px;
+      }
+    }
+  }
+}
+.tel-section-txt {
+  @include mq-down {
+    padding: 0 16px;
+  }
+}
+.facility-box {
+  width: 100%;
+  background-color: $whitegray;
+  padding: 56px;
+  margin: 16px auto 56px;
+  text-align: center;
+  @include mq-down {
+    padding: 32px 16px;
+  }
+  @include mq-down(sm) {
+    padding: 32px 16px;
+  }
+}
+/*==================================================
+ mail-section
+==================================================*/
+.flow {
+  @include w5;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-bottom: 56px;
+  @include mq-down {
+    max-width: 400px;
+  }
+  &__box {
+    max-width: 90px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    @include mq-down {
+      max-width: 80px;
+    }
+    @include mq-down(sm) {
+      max-width: 72px;
+    }
+    .num {
+      margin-right: 8px;
+    }
+    + dl {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: -84px;
+        content: "";
+        width: 70px;
+        height: 1px;
+        background-color: $darkgray;
+        @include mq-down {
+          width: 40px;
+          left: -50px;
+        }
+        @include mq-down(sm) {
+          width: 33px;
+          left: -43px;
+        }
+      }
+    }
+    &.active {
+      border-bottom: 3px solid $blue;
+      .num,
+      .flow-txt {
+        color: $black;
+      }
+    }
+  }
+}
+
+.caution-box {
+  width: 100%;
+  background-color: $whitegray;
+  padding: 56px 16px;
+  margin-bottom: 56px;
+  &__inner {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
