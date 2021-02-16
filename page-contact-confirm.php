@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main contact-finish-page">
+<main id="primary" class="site-main contact-confirm-page">
 
 
   <h1 class="contact-page-ttl">お問い合わせ</h1>
@@ -27,26 +27,22 @@ get_header();
         <dt class="num">01</dt>
         <dd class="flow-txt">入力</dd>
       </dl>
-      <dl class="flow__box">
+      <dl class="flow__box active">
         <dt class="num">02</dt>
         <dd class="flow-txt">確認</dd>
       </dl>
-      <dl class="flow__box active">
+      <dl class="flow__box">
         <dt class="num">03</dt>
         <dd class="flow-txt">完了</dd>
       </dl>
     </div>
+
+    <!-- contact-form -->
+    <?php get_template_part('/template-parts/content', 'contact-form'); ?>
+
   </div>
-  <!-- message -->
-  <div class="message-box">
-    <p class="thanks-page-ttl black">お問い合わせ<br class="sp">ありがとうございました</p>
-    <p class="thanks-page-txt">内容を確認させていただき、担当者からご連絡させていただきます。<br>
-      お急ぎの場合は下記の電話番号よりご連絡ください。</p>
-    <div class="facility-box">
-      <a href="" class="facility-box__link">TEL<span class="space">：</span>000-000-0000</a>
-    </div>
-  </div>
-  <a href="" class="btn-round clear wide">ホームへ戻る</a>
+  <!-- end mail-section-->
+
 
 </main><!-- #main -->
 
