@@ -93,14 +93,15 @@ const smoothScroll = smoothScrollTrigger => {
   施設ページのプラスボタンのトグルアクション
 ================================================================ */
 let plusBtns = document.getElementsByClassName('icon-plus');
+let areaTitles = document.getElementsByClassName('facilities-area__ttl');
 let areaItems = document.getElementsByClassName('facilities-area__item');
 let areaLinks = document.getElementsByClassName('btn-arrow-down');
 let plusBtnToggle = [false, false, false, false, false, false];
 
-
 for (let i = 0; i < 6; i++) {
   let areaLink = areaLinks[i]
   let plusBtn = plusBtns[i];
+  let areaTitle = areaTitles[i];
   let area = areaItems[i];
 
   //activeクラスをつける関数
@@ -118,8 +119,7 @@ for (let i = 0; i < 6; i++) {
   areaLink.addEventListener('click', () => {
     togglePlusBtn();
   })
-  plusBtn.addEventListener('click', () => {
-    console.log('click');
+  areaTitle.addEventListener('click', () => {
     togglePlusBtn();
   })
 }
