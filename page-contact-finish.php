@@ -46,7 +46,7 @@ get_header();
       <a href="" class="facility-box__link">TEL<span class="space">：</span>000-000-0000</a>
     </div>
   </div>
-  <a href="" class="btn-round clear wide">ホームへ戻る</a>
+  <a href="<?php echo home_url('/'); ?>" class="btn-round clear wide">ホームへ戻る</a>
 
 </main><!-- #main -->
 

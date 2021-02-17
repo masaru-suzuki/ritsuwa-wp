@@ -65,47 +65,53 @@ get_header();
     <div class="servive-contents-section__container">
       <div class="card-box">
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/tuusyokaigo.jpg" alt="tuusyokaigo">
           <p class="service-card-ttl">通所介護(デイサービス)​<br>地域密着型通所介護</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/houmonnkaigo.jpg"
+            alt="houmonnkaigo">
           <p class="service-card-ttl">訪問介護<br>​定期巡回随時対応型訪問介護看護</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/houmonnkanngo.jpg"
+            alt="houmonnkanngo">
           <p class="service-card-ttl">​訪問看護</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/syoukibotakinou.jpg"
+            alt="syoukibotakinou">
           <p class="service-card-ttl">小規模多機能型居宅介護​看護<br>小規模多機能型居宅介護</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/kyotakusienn.jpg"
+            alt="kyotakusienn">
           <p class="service-card-ttl">​居宅介護支援</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/nintishoutaiou.jpg"
+            alt="nintishoutaiou">
           <p class="service-card-ttl">認知症対応型共同生活介護<br>​(グループホーム)</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/zyuutakugatayuuryou.jpg"
+            alt="zyuutakugatayuuryou">
           <p class="service-card-ttl">​住宅型有料老人ホーム​<br>サービス付き高齢者向け住宅</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/syougai.jpg" alt="syougai">
           <p class="service-card-ttl">障がい者向けサービス</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
         <div class="card-box__card">
-          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/service-card.jpg" alt="">
+          <img class="card-img" src="<?php echo bloginfo('template_url'); ?>/images/hoiku.jpg" alt="hoiku">
           <p class="service-card-ttl">​保育園</p>
           <p class="service-card-txt">そうやって、利用者様やご家族様は当然、良いサービスを提供する為にも、他の事業所のスタッフさんからも信頼していただけるように、日々の業務に取り組んでいます。</p>
         </div>
