@@ -31,7 +31,9 @@
   <?php wp_body_open(); ?>
   <div id="page" class="site">
     <header id="masthead" class="site-header">
-      <img class="site-header__logo" src="<?php echo bloginfo('template_url'); ?>/images/logo.png" alt="">
+      <a class="site-header__logo-link" href="<?php echo home_url('/'); ?>">
+        <img class="site-header__logo" src="<?php echo bloginfo('template_url'); ?>/images/logo.png" alt="">
+      </a>
       <div class="site-header__nav pc">
         <ul class="nav">
           <li class="nav__item" onclick="location.href='<?php echo home_url('/'); ?>'">ホーム</li>

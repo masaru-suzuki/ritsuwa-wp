@@ -19,7 +19,17 @@
   @include mq-down(sm) {
     height: 64px;
   }
-
+  &__logo-link {
+    max-width: 310px;
+    width: 100%;
+    @include mq-down {
+      margin: 0 auto;
+      max-width: 170px;
+    }
+    @include mq-down(sm) {
+      max-width: 176px;
+    }
+  }
   &__logo {
     max-width: 310px;
     width: 100%;
