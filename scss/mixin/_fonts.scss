@@ -459,6 +459,26 @@ text
   );
   text-align: left;
 }
+.cta-tel-link {
+  @include cmn_txt(
+    $ff: Tsukushi A Round Gothic,
+    $fz: 22,
+    $ls: 6,
+    $lh: 30,
+    $mfz: 17,
+    $mls: 6,
+    $mlh: 27,
+    $sfz: 17,
+    $sls: 6,
+    $slh: 24
+  );
+  color: $whiteblue;
+  vertical-align: top;
+  font-weight: bold;
+  @include mq-down(sm) {
+    vertical-align: bottom;
+  }
+}
 .voice-txt {
   @include cmn_txt($fz: 17, $ls: 3, $lh: 30, $mfz: 15, $mls: 2.5, $mlh: 28, $sfz: 15, $sls: 2.5, $slh: 28);
 }
