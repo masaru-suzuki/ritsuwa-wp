@@ -67,23 +67,31 @@ get_header();
 
 
       <!-- page-nation -->
-      <?php
-          $prev_post = get_previous_post();
-          if (!empty($prev_post)) {
-            $prev_url = get_permalink($prev_post->ID);
-          }
-
-          $next_post = get_next_post();
-          if (!empty($next_post)) {
-            $next_url = get_permalink($next_post->ID);
-          }
-          ?>
       <div class="page-nation02">
-        <a href="<?php echo $prev_url; ?>" class="page-nation-link prev">前の記事</a>
+        <?php
+            $prev_post = get_previous_post(); //一つ古い記事
+            if (!empty($prev_post)) {
+              $prev_url = get_permalink($prev_post->ID);
+              echo '<a href="' . $prev_url  . '" class="page-nation-link prev">前の記事</a>';
+            } else {
+              echo '<a></a>';
+            }
+            ?>
         <a href="<?php echo get_page_link(18); ?>" class="page-nation-link back-list">一覧に戻る</a>
-        <a href="<?php echo $next_url; ?>" class="page-nation-link move-next">次の記事</a>
+
+        <?php
+            $next_post = get_next_post(); //一つ新しい記事
+            if (!empty($next_post)) {
+              $next_url = get_permalink($next_post->ID);
+              echo '<a href=" ' . $next_url . '" class="page-nation-link move-next">次の記事</a>';
+            } else {
+              echo '<a></a>';
+            }
+            ?>
       </div>
     </div>
+    <?php endwhile;
+  endif; ?>
 
     <!-- article-section__side -->
     <div class="article-section__side" id="single-post-sidebar">
@@ -95,8 +103,6 @@ get_header();
   <!-- cta -->
   <?php get_template_part('/template-parts/content', 'cta'); ?>
 </main>
-<?php endwhile;
-  endif; ?>
 
 
 
