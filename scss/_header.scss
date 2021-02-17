@@ -34,14 +34,11 @@
     max-width: 310px;
     width: 100%;
     height: auto;
-    // padding-left: 32px;
     padding: 0 48px;
     vertical-align: middle;
     @include mq-down {
       margin: 0 auto;
       max-width: 170px;
-      // height: auto;
-      // margin: auto;
       padding: unset;
       transition: 0.3s;
     }

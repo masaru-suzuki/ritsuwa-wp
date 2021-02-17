@@ -19,7 +19,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?php bloginfo('name'); ?> <?php if (is_single()) { ?> &raquo; Blog Archive <?php } ?> <?php wp_title(); ?></title>
   <link rel="profile" href="https://gmpg.org/xfn/11">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <!-- External files -->
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
   <!-- <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico"> -->
@@ -60,7 +61,6 @@
 
       <nav class="globalMenuSp pc_none">
         <ul>
-          <li class="globalMenuLi"><a href="<?php echo home_url('/'); ?>">ホーム</a></li>
           <li class="globalMenuLi"><a href="<?php echo get_page_link(14); ?>">サービス</a></li>
           <li class="globalMenuLi"><a href="<?php echo get_page_link(16); ?>">施設</a></li>
           <li class="globalMenuLi"><a href="<?php echo get_page_link(18); ?>">お知らせ</a></li>

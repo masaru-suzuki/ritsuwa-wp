@@ -39,16 +39,16 @@ get_header();
       foreach ($posts as $post) : // ループの開始
         setup_postdata($post); // 記事データの取得
       ?>
-      <a class="news-link" href="<?php the_permalink(); ?>"></a><!-- newsへのリンクをbox全体に広げる-->
-      <p class="main-visual__news--header main-visual-txt">NEWS</p>
-      <dl class="main-visual__news--articlw">
-        <dt class="news-ymd main-visual-txt"><?php echo get_the_date('Y-n-j'); ?></dt>
-        <dd class="news-ttl main-visual-txt"><?php the_title(); ?></dd>
+        <a class="news-link" href="<?php the_permalink(); ?>"></a><!-- newsへのリンクをbox全体に広げる-->
+        <p class="main-visual__news--header main-visual-txt">NEWS</p>
+        <dl class="main-visual__news--articlw">
+          <dt class="news-ymd main-visual-txt"><?php echo get_the_date('Y-n-j'); ?></dt>
+          <dd class="news-ttl main-visual-txt"><?php the_title(); ?></dd>
         <?php
       endforeach; // ループの終了
       wp_reset_postdata(); // 直前のクエリを復元する
         ?>
-      </dl>
+        </dl>
     </div>
   </div>
 
@@ -59,8 +59,7 @@ get_header();
     </div>
     <div class="service-section__txt-box">
       <div class="txt-box">
-        <h2
-          class="sct-ttl kakko"><span class="txt-whiteblue">生きがい</span><span class="sub-ttl1">を感じてもらいたい</span><span class="sub-ttl">それが私たちの願いです。</span></h2>
+        <h2 class="sct-ttl kakko"><span class="txt-whiteblue">生きがい</span><span class="sub-ttl1">を感じてもらいたい</span><span class="sub-ttl">それが私たちの願いです。</span></h2>
         <p>お元気になられてご自身の生きがいにつながる…そんなところでありたいと思っています。</p>
         <p>その為には、ご自身の家で過ごすような健やかな生活が必要だと考え、リツワで働く全員が、みなさまが楽しく健やかな暮らしを送れるように全力でサポートさせてもらっています。</p>
         <a href="<?php echo get_page_link(14); ?>" class="btn-round">サービス一覧</a>
@@ -73,14 +72,14 @@ get_header();
     <div class="facility-section__txt-box">
       <div class="txt-box">
         <h2 class="sct-ttl">まるで<br>自分の家にいるような<br>居心地の良い空間</h2>
-        <img class="img-box01 pc-none" src="<?php echo bloginfo('template_url'); ?>/images/top_facility01.jpg" alt="">
+        <img class="img-box01 pc-none" src="<?php echo bloginfo('template_url'); ?>/images/top_facility01.png" alt="">
         <p>リツワの施設は、まるで自宅に居るかのようなアットホームな雰囲気を重視してつくられています。それが、利用者様の笑顔やご自身が元気になることに繋がっています。</p>
         <p>どんな人でも、「その人らしい生活を送ることができる」そんなことを可能にしてくれる環境づくりに日々取り組んでいます。</p>
         <a href="<?php echo get_page_link(16); ?>" class="btn-round">施設一覧</a>
       </div>
     </div>
     <div class="facility-section__img-box pc">
-      <img class="img-box01" src="<?php echo bloginfo('template_url'); ?>/images/top_facility01.jpg" alt="">
+      <img class="img-box01" src="<?php echo bloginfo('template_url'); ?>/images/top_facility01.png" alt="">
       <img class="img-box02" src="<?php echo bloginfo('template_url'); ?>/images/top_facility02.jpg" alt="">
     </div>
   </div>
@@ -119,11 +118,11 @@ get_header();
                 //記事のリンク
                 $link = get_permalink();
             ?>
-            <tr>
-              <td class="table-txt ymd"><a href="<?php echo $link; ?>"></a><?php echo $date; ?></td>
-              <td class="table-txt"><a href="<?php echo $link; ?>"></a><?php echo $title; ?></td>
-              <td class="table-txt"><a href="<?php echo $link; ?>"></a><?php echo $content; ?></td>
-            </tr>
+                <tr>
+                  <td class="table-txt ymd"><a href="<?php echo $link; ?>"></a><?php echo $date; ?></td>
+                  <td class="table-txt"><a href="<?php echo $link; ?>"></a><?php echo $title; ?></td>
+                  <td class="table-txt"><a href="<?php echo $link; ?>"></a><?php echo $content; ?></td>
+                </tr>
 
             <?php endwhile;
             endif;
