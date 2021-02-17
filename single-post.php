@@ -43,30 +43,31 @@ get_header();
   ?>
 
 
-      <!-- breadcrumb -->
-      <?php get_template_part('/template-parts/content', 'breadcrumb'); ?>
+  <!-- breadcrumb -->
+  <?php get_template_part('/template-parts/content', 'breadcrumb'); ?>
 
-      <!-- article section -->
-      <div class="article-section">
+  <!-- article section -->
+  <div class="article-section">
 
-        <!-- article-section__contents -->
-        <div class="article-section__contents">
-          <div class="article">
-            <div class="article__ttl">
-              <div class="tag">
-                <p class="tag-txt"><?php echo $cat_name; ?></p>
-              </div>
-              <h1 class="article-ttl"><?php echo $title; ?></h1>
-              <p class="article-info"><?php echo $date; ?><span class="article-info-divide">|</span><?php echo $facility; ?></p>
-            </div>
-            <div class="article__contents">
-              <?php the_content(); ?>
-            </div>
+    <!-- article-section__contents -->
+    <div class="article-section__contents">
+      <div class="article">
+        <div class="article__ttl">
+          <div class="tag">
+            <p class="tag-txt"><?php echo $cat_name; ?></p>
           </div>
+          <h1 class="article-ttl"><?php echo $title; ?></h1>
+          <p
+            class="article-info"><?php echo $date; ?><span class="article-info-divide">|</span><?php echo $facility; ?></p>
+        </div>
+        <div class="article__contents">
+          <?php the_content(); ?>
+        </div>
+      </div>
 
 
-          <!-- page-nation -->
-          <?php
+      <!-- page-nation -->
+      <?php
           $prev_post = get_previous_post();
           if (!empty($prev_post)) {
             $prev_url = get_permalink($prev_post->ID);
@@ -77,22 +78,22 @@ get_header();
             $next_url = get_permalink($next_post->ID);
           }
           ?>
-          <div class="page-nation02">
-            <a href="<?php echo $prev_url; ?>" class="page-nation-link prev">前の記事</a>
-            <a href="<?php echo get_page_link(18); ?>" class="page-nation-link back-list">一覧に戻る</a>
-            <a href="<?php echo $next_url; ?>" class="page-nation-link move-next">次の記事</a>
-          </div>
-        </div>
+      <div class="page-nation02">
+        <a href="<?php echo $prev_url; ?>" class="page-nation-link prev">前の記事</a>
+        <a href="<?php echo get_page_link(18); ?>" class="page-nation-link back-list">一覧に戻る</a>
+        <a href="<?php echo $next_url; ?>" class="page-nation-link move-next">次の記事</a>
+      </div>
+    </div>
 
-        <!-- article-section__side -->
-        <div class="article-section__side" id="single-post-sidebar">
-          <?php get_sidebar(); ?>
-        </div>
+    <!-- article-section__side -->
+    <div class="article-section__side" id="single-post-sidebar">
+      <?php get_sidebar(); ?>
+    </div>
 
-      </div><!-- /event section -->
+  </div><!-- /event section -->
 
-      <!-- cta -->
-      <?php get_template_part('/template-parts/content', 'cta'); ?>
+  <!-- cta -->
+  <?php get_template_part('/template-parts/content', 'cta'); ?>
 </main>
 <?php endwhile;
   endif; ?>
