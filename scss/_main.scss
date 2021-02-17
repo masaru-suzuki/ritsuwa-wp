@@ -505,12 +505,6 @@ main {
           max-width: 600px;
           width: 100%;
           margin: 80px auto 0;
-          //見出しっぽくしたかったため、fontは筑紫A丸ゴシック
-          // .sub-ttl {
-          //   font-family: Hiragino Maru Gothic ProN;
-          //   padding-bottom: 12px;
-          //   font-weight: normal;
-          // }
           @include mq-down(sm) {
             margin-top: 32px;
           }
@@ -524,6 +518,14 @@ main {
               border-color: $black; /* 線色：緑 */
               border-style: dashed; /* 線種：実線 */
               padding: 0.3em; /* セル内側の余白 */
+              position: relative;
+              a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
               &:first-child,
               &:nth-child(2) {
                 white-space: nowrap;
