@@ -95,6 +95,7 @@
   height: 100%;
   pointer-events: none;
   opacity: 0;
+  display: none; //画面遷移時に一瞬だけ出てしまうから
   animation: hidden 0.6s linear 0s;
 
   ul {
