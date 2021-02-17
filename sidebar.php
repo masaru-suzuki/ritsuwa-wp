@@ -22,7 +22,7 @@
   </ul>
 </div>
 <!-- Recent Article -->
-<div class="news-side-link pc">
+<div class="news-side-link">
   <p class="news-side-link__ttl">最新の記事</p>
   <ul class="news-side-link__list">
 
@@ -55,7 +55,7 @@
 </div>
 
 <!-- Archives -->
-<div class="news-side-link pc">
+<div class="news-side-link">
   <p class="news-side-link__ttl">アーカイブ</p>
   <ul class="news-side-link__list archives">
     <?php

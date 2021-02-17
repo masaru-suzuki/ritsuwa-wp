@@ -579,7 +579,10 @@ main {
         max-width: 540px;
         height: auto;
       }
-      a {
+      .cta-txt {
+        margin-bottom: 8px;
+      }
+      .expand {
         //box全体にlinkを貼った
         position: absolute;
         top: 0;
@@ -587,6 +590,13 @@ main {
         height: 100%;
         width: 100%;
       }
+      .cta-tel-link {
+        padding-left: 8px;
+        @include mq-down(sm) {
+          padding-left: 0;
+        }
+      }
+
       &::after {
         position: absolute;
         bottom: 24px;
@@ -594,7 +604,7 @@ main {
         content: "";
         width: 88px;
         height: 16px;
-        background-image: url(images/arrow.png);
+        background-image: url(/assets/images/arrow.png);
         background-repeat: no-repeat;
         transition: 0.5s;
         background-size: contain;
