@@ -106,10 +106,21 @@ for (let i = 0; i < 6; i++) {
 
   //activeクラスをつける関数
   const togglePlusBtn = () => {
+    let activatedCardIndex = plusBtnToggle.indexOf(true);
+    let activatedCard = areaItems[activatedCardIndex];
+    let activatedPlusBtn = plusBtns[activatedCardIndex];
+
+    console.log(activatedCard);
     plusBtnToggle[i] = !plusBtnToggle[i];
       if (plusBtnToggle[i] === true) {
         area.classList.add('active');
         plusBtn.classList.add('active');
+        //他にactiveクラスがついてあるカードを閉じる
+        if (activatedCard) {
+          plusBtnToggle[activatedCardIndex] = !plusBtnToggle[activatedCardIndex];
+          activatedCard.classList.remove('active');
+          activatedPlusBtn.classList.remove('active');
+        }
       } else {
         area.classList.remove('active');
         plusBtn.classList.remove('active');
