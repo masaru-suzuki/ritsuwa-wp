@@ -17,6 +17,27 @@ define('WP_SCSS_ALWAYS_RECOMPILE', true);
 
 
 /**
+ * CSS：最新版のcssを適用させる
+ */
+// function my_update_styles($styles)
+// {
+//   $mtime = filemtime(get_stylesheet_directory() . '/style.css');
+//   $styles->default_version = $mtime;
+// }
+// add_action('wp_default_styles', 'my_update_styles');
+
+/**
+ * JavaScriptやCSSに付加されるWordPressのバージョン番号(?ver=4.4.2など)を削除します。
+ */
+// function remove_src_wp_ver($dep)
+// {
+//   $dep->default_version = '';
+// }
+// add_action('wp_default_scripts', 'remove_src_wp_ver');
+// add_action('wp_default_styles', 'remove_src_wp_ver');
+
+
+/**
  * JSファイルを読み込ませる
  * バージョン指定なし
  */
