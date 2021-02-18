@@ -96,7 +96,8 @@ footer {
             top: 12px;
           }
           @include mq-down(sm) {
-            top: 8px;
+            right: 40px;
+            top: 0px;
           }
         }
         &:hover {

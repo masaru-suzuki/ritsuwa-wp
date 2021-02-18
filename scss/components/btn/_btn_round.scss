@@ -51,6 +51,7 @@ $sp_confirm_btn_height: 42px;
     background-color: unset;
     color: $bgcolor;
     border: 1px solid $bgcolor;
+    padding-left: 12px;
   }
   &.grayblue {
     background-color: $grayblue;
@@ -93,10 +94,11 @@ $sp_confirm_btn_height: 42px;
 /*btnがinput要素だった場合の処理*/
 .input-btn {
   position: relative;
+  margin: 0 auto;
   &::before {
     position: absolute;
     right: 10%;
-    top: 50%;
+    top: 51%;
     transform: translateY(-50%);
     transition: 0.3s;
     font-family: "Font Awesome 5 Free";
@@ -138,7 +140,8 @@ $sp_confirm_btn_height: 42px;
   &.left-arrow {
     &::before {
       position: absolute;
-      left: 15%;
+      top: 55%;
+      left: 12%;
       width: 10px;
       transition: 0.3s;
       transform: translateY(-50%) rotateY(180deg);
@@ -146,7 +149,7 @@ $sp_confirm_btn_height: 42px;
     &:hover {
       &::before {
         transition: 0.3s;
-        left: 10%;
+        left: 8%;
       }
     }
   }
