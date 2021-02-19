@@ -112,7 +112,7 @@
 input[type="text"]:required,
 input[type="email"]:required,
 // input[type="email"]:invalid,
-input[type="tel"]:invalid,
+// input[type="tel"]:invalid,
 textarea:required {
   color: $darkgray;
   border: 1px solid #ffe6e6;
