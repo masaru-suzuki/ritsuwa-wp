@@ -632,7 +632,8 @@ text
 .haveto {
   color: $red;
 }
-.error {
+.error,
+.validationMessage {
   @include cmn_txt($fz: 15, $ls: 1, $lh: 40, $mfz: 12, $mls: 1, $mlh: 40, $sfz: 8, $sls: 0.8, $slh: 23);
   white-space: nowrap;
   color: $red;

@@ -35,7 +35,7 @@
       input,
       textarea {
         display: table-cell;
-        background-color: $whitegray;
+        // background-color: $whitegray;
         width: 70%;
         padding: 8px 0 6px 13px;
         letter-spacing: 1px;
@@ -107,3 +107,41 @@
     }
   }
 }
+
+/* 入力エラーのスタイル */
+input[type="text"]:required,
+input[type="email"]:required,
+// input[type="email"]:invalid,
+input[type="tel"]:invalid,
+textarea:required {
+  color: $darkgray;
+  border: 1px solid #ffe6e6;
+  background-color: #fff5f6;
+}
+
+/* 入力値が正常な時のスタイル */
+input[type="text"]:valid,
+input[type="email"]:valid,
+textarea:valid {
+  color: $black;
+  border-color: $gray;
+  background: #e8f0ff; //自動入力時のinputの色にあわせた
+}
+/*必須項目のbgcを変更*/
+.target_email {
+  // background-color: #dec8d5 !important;
+  // border: 1px solid $whiteblue;
+}
+
+/*自動入力時にinputの背景色が変わらないよう*/
+// @keyframes onAutoFillStart {
+//   from {
+//   }
+//   to {
+//   }
+// }
+
+// input:-webkit-autofill {
+//   animation-name: onAutoFillStart;
+//   transition: background-color 50000s ease-in-out 0s;
+// }
